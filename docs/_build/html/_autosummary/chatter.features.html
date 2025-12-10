@@ -1,0 +1,881 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>chatter.features &#8212; Chatter Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e7293a18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/chatter.features';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="chatter.models" href="chatter.models.html" />
+    <link rel="prev" title="chatter.data" href="chatter.data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Chatter Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Chatter Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/installation.html">Installing <code class="docutils literal notranslate"><span class="pre">chatter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/flow_diagram.html">Flow diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/preparation.html">Preparation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Full Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/cassins_vireo.html">Cassin’s vireo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Short Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/humpback_whale.html">Humpback whales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/chimpanzee.html">Chimpanzees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/egyptian_fruit_bat.html">Egyptian fruit bats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/human.html">Humans</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chatter.html">chatter</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chatter.analyzer.html">chatter.analyzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.config.html">chatter.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.data.html">chatter.data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">chatter.features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.models.html">chatter.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.trainer.html">chatter.trainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.utils.html">chatter.utils</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/masonyoungblood/chatter" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/_autosummary/chatter.features.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>chatter.features</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.df"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.df</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.config"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.run_pacmap"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.run_pacmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.run_birch_clustering"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.run_birch_clustering()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_density_probability"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_density_probability()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_cosine_distances"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_cosine_distances()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_sse_resid"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_sse_resid()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.assign_sequence_ids"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.assign_sequence_ids()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_dtw_distance"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_dtw_distance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_frequency_statistics"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_frequency_statistics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.plot_birch_sse_elbow"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.plot_birch_sse_elbow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.interactive_embedding_plot"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.interactive_embedding_plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.static_embedding_plot"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.static_embedding_plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-chatter.features">
+<span id="chatter-features"></span><h1>chatter.features<a class="headerlink" href="#module-chatter.features" title="Link to this heading">#</a></h1>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FeatureProcessor</span></code></a>(df, config)</p></td>
+<td><p>Post-processing class for autoencoder features and associated metadata.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chatter.features.</span></span><span class="sig-name descname"><span class="pre">FeatureProcessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor" title="Link to this definition">#</a></dt>
+<dd><p>Post-processing class for autoencoder features and associated metadata.</p>
+<p>This class provides methods for dimensionality reduction (PaCMAP),
+clustering (BIRCH), computing within-sequence cosine distances, computing
+VAR-based surprisal scores, assigning sequence identifiers, and visualizing
+embedding structures.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.df">
+<span class="sig-name descname"><span class="pre">df</span></span><a class="headerlink" href="#chatter.features.FeatureProcessor.df" title="Link to this definition">#</a></dt>
+<dd><p>DataFrame containing latent features and associated metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#chatter.features.FeatureProcessor.config" title="Link to this definition">#</a></dt>
+<dd><p>Configuration dictionary containing post-processing parameters such
+as ‘lag_size’ and ‘seq_bound’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the FeatureProcessor with a DataFrame and configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame containing latent features and corresponding metadata.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing post-processing parameters.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.run_pacmap">
+<span class="sig-name descname"><span class="pre">run_pacmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.run_pacmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.run_pacmap" title="Link to this definition">#</a></dt>
+<dd><p>Run PaCMAP dimensionality reduction on latent features and add coordinates.</p>
+<p>This method automatically identifies feature columns, runs PaCMAP to embed them into a two-dimensional space,
+and stores the resulting coordinates in new columns ‘pacmap_x’ and
+‘pacmap_y’ in the DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>**kwargs</strong> – Additional keyword arguments passed directly to the
+pacmap.PaCMAP constructor, allowing customization of the
+embedding.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current instance, returned to enable method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor">FeatureProcessor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.run_birch_clustering">
+<span class="sig-name descname"><span class="pre">run_birch_clustering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_clusters_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.run_birch_clustering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.run_birch_clustering" title="Link to this definition">#</a></dt>
+<dd><p>Run BIRCH clustering for multiple values of ‘n_clusters’.</p>
+<p>This method performs BIRCH clustering on the PaCMAP embeddings (columns
+‘pacmap_x’ and ‘pacmap_y’) for each requested number of clusters and
+stores cluster labels in separate columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n_clusters_list</strong> (<em>list</em><em> of </em><em>int</em>) – List of ‘n_clusters’ values for which to compute BIRCH cluster
+assignments. For each value ‘n’, a column ‘birch_n’ is added to the
+DataFrame.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current instance, returned to enable method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor">FeatureProcessor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.compute_density_probability">
+<span class="sig-name descname"><span class="pre">compute_density_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">use_pacmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.compute_density_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.compute_density_probability" title="Link to this definition">#</a></dt>
+<dd><p>Compute probability density estimates for embeddings using <cite>denmarf</cite>.</p>
+<p>This method fits a Masked AutoRegressive Flow (MAF) density estimator
+to the latent features (or PaCMAP coordinates) and assigns a
+log-probability density score to each unit. High scores indicate
+‘typical’ points in high-density regions; low scores indicate outlines
+or rare examples.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>use_pacmap</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, computes density on the 2D ‘pacmap_x/y’ coordinates
+instead of the full latent space. Default is False
+(recommended: density estimation is more rigorous in the full latent space).</p></li>
+<li><p><strong>scaled</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, standardizes features (zero mean, unit variance) before
+fitting. Highly recommended for neural density estimators.
+Default is True.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments to pass to the <cite>denmarf.DensityEstimate</cite>
+constructor or fit method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current instance, returned to enable method chaining. A new column
+‘density_log_prob’ is added to the DataFrame.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor">FeatureProcessor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.compute_cosine_distances">
+<span class="sig-name descname"><span class="pre">compute_cosine_distances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.compute_cosine_distances"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.compute_cosine_distances" title="Link to this definition">#</a></dt>
+<dd><p>Compute cosine distance between subsequent latent features within sequences.</p>
+<p>This method calculates the cosine distance between each pair of
+consecutive rows that share the same sequence identifier ‘seq_id’.
+For each sequence, the first item has an undefined previous neighbor
+and therefore receives a distance of NaN. The results are stored in a
+new column ‘cosine_dist’.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>The DataFrame must contain:
+- Columns representing latent features.
+- A ‘seq_id’ column identifying sequences.
+- An ‘onset’ column to ensure temporal ordering within each sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current instance, returned to enable method chaining.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>FeatureProcessor</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.compute_sse_resid">
+<span class="sig-name descname"><span class="pre">compute_sse_resid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.compute_sse_resid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.compute_sse_resid" title="Link to this definition">#</a></dt>
+<dd><p>Compute VAR-based sum of squared error residuals as a surprisal proxy.</p>
+<p>This method fits a single global vector autoregression (VAR) model with
+a specified lag size across all sequences while respecting sequence
+boundaries defined by ‘seq_id’. It then computes per-timestep sum of
+squared error (SSE) residuals for each sequence, including short
+sequences and early time steps using reduced lag orders when necessary.</p>
+<section id="id1">
+<h2>Requirements<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>The DataFrame must contain:
+- Columns representing latent features.
+- A ‘seq_id’ column identifying sequences.
+Configuration must include:
+- ‘lag_size’ : int, the lag order p of the VAR model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current instance, returned to enable method chaining. A new
+column ‘sse_resid’ is added to the DataFrame containing SSE values
+or NaN where predictions are not defined (for example, the first
+time step of each sequence).</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>FeatureProcessor</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.assign_sequence_ids">
+<span class="sig-name descname"><span class="pre">assign_sequence_ids</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.assign_sequence_ids"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.assign_sequence_ids" title="Link to this definition">#</a></dt>
+<dd><p>Assign sequence identifiers to syllables based on temporal proximity.</p>
+<p>Sequences are defined separately for each ‘source_file’. Within each
+file, syllables are sorted by ‘onset’ time, and a new sequence is
+started whenever the silent gap between the previous syllable’s ‘offset’
+and the current syllable’s ‘onset’ exceeds the threshold ‘seq_bound’ in
+seconds.</p>
+<section id="id2">
+<h2>Requirements<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>The DataFrame must contain:
+- ‘source_file’ : identifier for the audio file.
+- ‘onset’       : onset time (in seconds) for each syllable.
+- ‘offset’      : offset time (in seconds) for each syllable.
+The configuration must contain:
+- ‘seq_bound’ : float, maximum allowed silent gap in seconds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current instance, returned to enable method chaining. A new
+column ‘seq_id’ is added to the DataFrame.</p>
+</dd>
+<dt class="field-even">rtype<span class="colon">:</span></dt>
+<dd class="field-even"><p>FeatureProcessor</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.compute_dtw_distance">
+<span class="sig-name descname"><span class="pre">compute_dtw_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq_id_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq_id_2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.compute_dtw_distance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.compute_dtw_distance" title="Link to this definition">#</a></dt>
+<dd><p>Compute Dynamic Time Warping (DTW) cosine distance between two sequences.</p>
+<p>This method calculates the DTW distance between the latent feature
+sequences of two specified sequence IDs. It first computes a local
+distance matrix using the cosine distance between all pairs of units
+from the two sequences, and then uses this matrix to find the optimal
+alignment path cost with DTW.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq_id_1</strong> (<em>int</em>) – The identifier for the first sequence.</p></li>
+<li><p><strong>seq_id_2</strong> (<em>int</em>) – The identifier for the second sequence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total DTW distance (cost) between the two sequences.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If ‘seq_id’ or feature columns are not found in the DataFrame, or
+    if one or both of the specified seq_ids do not exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.compute_frequency_statistics">
+<span class="sig-name descname"><span class="pre">compute_frequency_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_traces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.compute_frequency_statistics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.compute_frequency_statistics" title="Link to this definition">#</a></dt>
+<dd><p>Compute minimum, mean, and maximum frequency statistics for each unit.</p>
+<p>This method loads spectrograms from the HDF5 file and calculates frequency
+statistics for each time bin of each unit. It always updates the internal
+DataFrame in place with summary statistics (global min, mean, max per unit),
+and can optionally return detailed per-time-bin traces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the HDF5 file containing the spectrograms dataset.</p></li>
+<li><p><strong>return_traces</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, returns a dictionary with detailed per-time-bin frequency
+traces for each unit. If False (default), returns the FeatureProcessor
+instance to support method chaining.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>If return_traces is False (default), returns self after adding the
+new summary columns (‘min_freq’, ‘mean_freq’, ‘max_freq’,
+‘time_bin_ms’) to self.df.
+If return_traces is True, returns a dictionary containing:</p>
+<ul class="simple">
+<li><p>’time_bins_info’: metadata about the time axis</p></li>
+<li><p>’units’: mapping from unit index (h5_index) to per-time-bin traces
+for ‘min_freq_trace’, ‘mean_freq_trace’, and ‘max_freq_trace’.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor">FeatureProcessor</a> or dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If the metadata contains a ‘max_unit_length_s’ column (added during
+segmentation), it is used to determine the effective duration represented
+by each spectrogram column. Otherwise, the method falls back to the
+configuration’s max unit length settings.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.plot_birch_sse_elbow">
+<span class="sig-name descname"><span class="pre">plot_birch_sse_elbow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.plot_birch_sse_elbow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.plot_birch_sse_elbow" title="Link to this definition">#</a></dt>
+<dd><p>Plot the sum of squared errors for a range of cluster counts in BIRCH clustering.</p>
+<p>This method computes and visualizes the sum of squared errors (SSE)
+corresponding to different numbers of clusters in BIRCH clustering.
+It helps identify an appropriate number of clusters using the elbow
+method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>k_range</strong> (<em>iterable</em><em> of </em><em>int</em>) – Iterable (for example, a list or range) of cluster counts ‘k’ to
+evaluate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current instance, returned to enable method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor">FeatureProcessor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.interactive_embedding_plot">
+<span class="sig-name descname"><span class="pre">interactive_embedding_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_html_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumb_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">96</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.interactive_embedding_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.interactive_embedding_plot" title="Link to this definition">#</a></dt>
+<dd><p>Export a self-contained HTML file with an interactive embedding plot.</p>
+<p>This method creates a standalone HTML file that uses Plotly.js in the
+browser (no Python backend required) to display the PaCMAP embedding.
+Hovering over points in the scatterplot updates a grid of pre-rendered
+spectrogram thumbnails for the focal unit and its nearest neighbors.</p>
+<p>All required data (coordinates, neighbor indices, and spectrogram
+thumbnails encoded as base64 PNGs) are embedded directly into the HTML
+file so it can be shared and opened without any additional files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the HDF5 file containing the spectrograms dataset.</p></li>
+<li><p><strong>output_html</strong> (<em>str</em><em> or </em><em>Path</em>) – Path at which to save the resulting HTML file.</p></li>
+<li><p><strong>thumb_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Approximate size (in pixels) of the square spectrogram thumbnails.
+The default is 96.</p></li>
+<li><p><strong>point_alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – Opacity of the scatter points (0.0 to 1.0). The default is 0.7.</p></li>
+<li><p><strong>point_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Size of the scatter points in pixels. The default is 3.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The current instance, returned to enable method chaining.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#chatter.features.FeatureProcessor" title="chatter.features.FeatureProcessor">FeatureProcessor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.features.FeatureProcessor.static_embedding_plot">
+<span class="sig-name descname"><span class="pre">static_embedding_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">focal_quantile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom_padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_neighbors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/features.html#FeatureProcessor.static_embedding_plot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.features.FeatureProcessor.static_embedding_plot" title="Link to this definition">#</a></dt>
+<dd><p>Create a publication-quality static plot of the embedding space.</p>
+<p>This method generates a visualization that includes a 2D density map of
+the embedding and four “callouts” showing focal syllables and their
+nearest neighbors. Focal points are selected automatically from the
+fringes of each quadrant of the embedding space to ensure a representative
+sample of unique points. The plot is designed to be border-free with a
+seamless viridis background.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the HDF5 file containing the spectrograms dataset.</p></li>
+<li><p><strong>output_path</strong> (<em>str</em><em> or </em><em>Path</em><em>, </em><em>optional</em>) – Path to save the final PNG image. If None, the plot is displayed
+directly using plt.show(). The default is None.</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – Seed for the random number generator to ensure reproducible selection
+of focal points. The default is 42.</p></li>
+<li><p><strong>point_alpha</strong> (<em>float</em><em>, </em><em>optional</em>) – The alpha (transparency) of the scatter points in the background.
+The default is 0.3.</p></li>
+<li><p><strong>point_size</strong> (<em>int</em><em> or </em><em>float</em><em>, </em><em>optional</em>) – The size of the scatter points in the background. The default is 2.</p></li>
+<li><p><strong>margin</strong> (<em>float</em><em>, </em><em>optional</em>) – The margin from the plot edge to the nearest edge of a callout
+group, as a fraction of the plot’s total width/height. The default
+is 0.02.</p></li>
+<li><p><strong>zoom_padding</strong> (<em>float</em><em>, </em><em>optional</em>) – The padding to add around the data points as a percentage of the
+data’s range, effectively controlling the zoom level. The default
+is 0.05 (5%).</p></li>
+<li><p><strong>num_neighbors</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of nearest neighbors to display for each focal point.
+The default is 3.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chatter.data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">chatter.data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chatter.models.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">chatter.models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.df"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.df</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.config"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.__init__"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.run_pacmap"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.run_pacmap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.run_birch_clustering"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.run_birch_clustering()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_density_probability"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_density_probability()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_cosine_distances"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_cosine_distances()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_sse_resid"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_sse_resid()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.assign_sequence_ids"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.assign_sequence_ids()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_dtw_distance"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_dtw_distance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.compute_frequency_statistics"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.compute_frequency_statistics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.plot_birch_sse_elbow"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.plot_birch_sse_elbow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.interactive_embedding_plot"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.interactive_embedding_plot()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.features.FeatureProcessor.static_embedding_plot"><code class="docutils literal notranslate"><span class="pre">FeatureProcessor.static_embedding_plot()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mason Youngblood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Mason Youngblood.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

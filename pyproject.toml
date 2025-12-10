@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chatter"
+version = "0.1.0"
+description = "A Python library for applying information theory and AI/ML models to animal communication."
+authors = [
+    {name = "Mason Youngblood", email = "masonyoungblood@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "audiocomplib>=0.2.0",
+    "biodenoising>=0.3.3",
+    "birdnetlib>=0.18.0",
+    "denmarf>=0.3.2",
+    "dtw>=1.4.0",
+    "h5py>=3.15.1",
+    "ipykernel>=7.1.0",
+    "ipympl>=0.9.8",
+    "ipython>=9.8.0",
+    "ipywidgets>=8.1.8",
+    "librosa>=0.9.2",
+    "matplotlib>=3.10.7",
+    "noisereduce>=3.0.3",
+    "numba>=0.62.1",
+    "numpy>=2.3.5",
+    "pacmap>=0.8.0",
+    "pandas>=2.3.3",
+    "pydub>=0.25.1",
+    "pykanto>=0.1.7",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.16.3",
+    "soxr>=1.0.0",
+    "tensorflow>=2.20.0",
+    "torch>=2.9.1",
+    "torchaudio>=2.9.1",
+    "tqdm>=4.67.1",
+    "transformers>=4.57.3",
+]

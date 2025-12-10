@@ -1,0 +1,731 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>chatter.data &#8212; Chatter Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e7293a18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/chatter.data';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="chatter.features" href="chatter.features.html" />
+    <link rel="prev" title="chatter.config" href="chatter.config.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Chatter Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Chatter Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/installation.html">Installing <code class="docutils literal notranslate"><span class="pre">chatter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/flow_diagram.html">Flow diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/preparation.html">Preparation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Full Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/cassins_vireo.html">Cassin’s vireo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Short Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/humpback_whale.html">Humpback whales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/chimpanzee.html">Chimpanzees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/egyptian_fruit_bat.html">Egyptian fruit bats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/human.html">Humans</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chatter.html">chatter</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="chatter.analyzer.html">chatter.analyzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.config.html">chatter.config</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">chatter.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.features.html">chatter.features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.models.html">chatter.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.trainer.html">chatter.trainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.utils.html">chatter.utils</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/masonyoungblood/chatter" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/_autosummary/chatter.data.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>chatter.data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset.h5_path"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset.h5_path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset.indices"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset.indices</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset._h5"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset._h5</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset.__init__"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.preprocess_audio_data"><code class="docutils literal notranslate"><span class="pre">preprocess_audio_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.compute_spectrogram"><code class="docutils literal notranslate"><span class="pre">compute_spectrogram()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.segment_file"><code class="docutils literal notranslate"><span class="pre">segment_file()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.segment_file_simple"><code class="docutils literal notranslate"><span class="pre">segment_file_simple()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.slice_and_process_spectrograms"><code class="docutils literal notranslate"><span class="pre">slice_and_process_spectrograms()</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-chatter.data">
+<span id="chatter-data"></span><h1>chatter.data<a class="headerlink" href="#module-chatter.data" title="Link to this heading">#</a></h1>
+<p>Core data processing utilities for Chatter.</p>
+<p>This module also configures logging/noise behavior for a few noisy
+dependencies (e.g., TensorFlow Lite via birdnetlib) so that downstream
+pipelines like <cite>extract_species_clips</cite> run without spamming the console.</p>
+<p class="rubric">Functions</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chatter.data.compute_spectrogram" title="chatter.data.compute_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_spectrogram</span></code></a>(y, sr, config)</p></td>
+<td><p>Compute a mel spectrogram in dB scale from an audio time series.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#chatter.data.preprocess_audio_data" title="chatter.data.preprocess_audio_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess_audio_data</span></code></a>(audio, config)</p></td>
+<td><p>Core preprocessing pipeline for a pydub AudioSegment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chatter.data.segment_file" title="chatter.data.segment_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">segment_file</span></code></a>(mel_spectrogram, config)</p></td>
+<td><p>Segment a full mel spectrogram using the high-fidelity pykanto workflow.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#chatter.data.segment_file_simple" title="chatter.data.segment_file_simple"><code class="xref py py-obj docutils literal notranslate"><span class="pre">segment_file_simple</span></code></a>(y, sr, config)</p></td>
+<td><p>Segment an audio array based on amplitude using frame-wise RMS energy.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chatter.data.slice_and_process_spectrograms" title="chatter.data.slice_and_process_spectrograms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">slice_and_process_spectrograms</span></code></a>(full_spec, ...)</p></td>
+<td><p>Slice and process unit spectrograms from a full spectrogram matrix.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chatter.data.SpectrogramDataset" title="chatter.data.SpectrogramDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SpectrogramDataset</span></code></a>(h5_path, indices)</p></td>
+<td><p>PyTorch Dataset for lazy loading of spectrograms from an HDF5 file.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="chatter.data.SpectrogramDataset">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chatter.data.</span></span><span class="sig-name descname"><span class="pre">SpectrogramDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#SpectrogramDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.SpectrogramDataset" title="Link to this definition">#</a></dt>
+<dd><p>PyTorch Dataset for lazy loading of spectrograms from an HDF5 file.</p>
+<p>This dataset reads spectrograms on demand from an HDF5 dataset named
+‘spectrograms’. It is designed to work correctly with parallel DataLoader
+workers by opening a separate file handle per worker process.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.data.SpectrogramDataset.h5_path">
+<span class="sig-name descname"><span class="pre">h5_path</span></span><a class="headerlink" href="#chatter.data.SpectrogramDataset.h5_path" title="Link to this definition">#</a></dt>
+<dd><p>Path to the HDF5 file containing the spectrograms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.data.SpectrogramDataset.indices">
+<span class="sig-name descname"><span class="pre">indices</span></span><a class="headerlink" href="#chatter.data.SpectrogramDataset.indices" title="Link to this definition">#</a></dt>
+<dd><p>List of integer indices referring to the entries in the ‘spectrograms’
+dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.data.SpectrogramDataset._h5">
+<span class="sig-name descname"><span class="pre">_h5</span></span><a class="headerlink" href="#chatter.data.SpectrogramDataset._h5" title="Link to this definition">#</a></dt>
+<dd><p>Lazily opened HDF5 file handle. It is not pickled across processes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>h5py.File or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.data.SpectrogramDataset.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#SpectrogramDataset.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.SpectrogramDataset.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the spectrogram dataset for lazy HDF5 loading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the HDF5 file containing the ‘spectrograms’ dataset.</p></li>
+<li><p><strong>indices</strong> (<em>list</em><em> of </em><em>int</em>) – List of dataset indices that this instance will expose through
+__getitem__.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chatter.data.preprocess_audio_data">
+<span class="sig-prename descclassname"><span class="pre">chatter.data.</span></span><span class="sig-name descname"><span class="pre">preprocess_audio_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#preprocess_audio_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.preprocess_audio_data" title="Link to this definition">#</a></dt>
+<dd><p>Core preprocessing pipeline for a pydub AudioSegment.</p>
+<p>This function applies the full preprocessing chain: fade in/out, format conversion,
+filtering, amplitude normalization, noise reduction (noisereduce or biodenoising),
+compression, limiting, and final normalization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>audio</strong> (<em>pydub.AudioSegment</em>) – Input audio segment.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing preprocessing parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Processed audio data as a 1D numpy array of type int16.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chatter.data.compute_spectrogram">
+<span class="sig-prename descclassname"><span class="pre">chatter.data.</span></span><span class="sig-name descname"><span class="pre">compute_spectrogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#compute_spectrogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.compute_spectrogram" title="Link to this definition">#</a></dt>
+<dd><p>Compute a mel spectrogram in dB scale from an audio time series.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – Audio time series.</p></li>
+<li><p><strong>sr</strong> (<em>int</em>) – Sample rate.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing spectrogram parameters (n_fft, hop_length, etc.).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Mel spectrogram in decibel scale.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chatter.data.segment_file">
+<span class="sig-prename descclassname"><span class="pre">chatter.data.</span></span><span class="sig-name descname"><span class="pre">segment_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mel_spectrogram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#segment_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.segment_file" title="Link to this definition">#</a></dt>
+<dd><p>Segment a full mel spectrogram using the high-fidelity pykanto workflow.</p>
+<p>This function applies an image-processing pipeline inspired by pykanto to
+identify syllable-like acoustic units in a spectrogram. It uses histogram
+equalization, median filtering, morphological operations, and Gaussian
+blurring, followed by pykanto’s ‘find_units’ to obtain onset and offset
+times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mel_spectrogram</strong> (<em>np.ndarray</em>) – Full mel spectrogram in decibel scale, with shape (n_mels, time_frames).</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing segmentation parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of segment boundaries with shape (n_segments, 2), where each row
+contains the onset and offset times (in seconds or frames, depending
+on pykanto configuration). If no units are found or an error occurs,
+an empty array with shape (0,) is returned.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chatter.data.segment_file_simple">
+<span class="sig-prename descclassname"><span class="pre">chatter.data.</span></span><span class="sig-name descname"><span class="pre">segment_file_simple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#segment_file_simple"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.segment_file_simple" title="Link to this definition">#</a></dt>
+<dd><p>Segment an audio array based on amplitude using frame-wise RMS energy.</p>
+<p>This function computes frame-wise RMS energy using short-time analysis,
+converts it to decibels relative to full scale (dBFS), and identifies
+non-silent intervals as contiguous regions where the RMS level exceeds a
+configurable threshold. The threshold can be specified directly in dBFS
+or as a linear amplitude ratio and is combined with a configurable noise
+floor to produce a single decision boundary. Detected regions separated
+by short silences are merged, and the resulting segments are filtered
+by minimum and optional maximum unit length constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – Audio time series as a one-dimensional NumPy array.</p></li>
+<li><p><strong>sr</strong> (<em>int</em>) – Sample rate of the audio time series in Hz.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing segmentation parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of segment boundaries with shape (n_segments, 2), where each row
+contains the onset and offset times in seconds. If no valid intervals
+are found or an error occurs, an empty array with shape (0,) is
+returned.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chatter.data.slice_and_process_spectrograms">
+<span class="sig-prename descclassname"><span class="pre">chatter.data.</span></span><span class="sig-name descname"><span class="pre">slice_and_process_spectrograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full_spec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segments</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_unit_len_sec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_unit_len_sec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/data.html#slice_and_process_spectrograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.data.slice_and_process_spectrograms" title="Link to this definition">#</a></dt>
+<dd><p>Slice and process unit spectrograms from a full spectrogram matrix.</p>
+<p>This function takes a full mel spectrogram and a collection of temporal
+segments, extracts the corresponding time windows, normalizes each segment,
+pads them to a common length, and downsamples them to a fixed target shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>full_spec</strong> (<em>np.ndarray</em>) – Full mel spectrogram with shape (n_mels, time_frames) in decibel scale.</p></li>
+<li><p><strong>segments</strong> (<em>np.ndarray</em>) – Array of segment boundaries with shape (n_segments, 2), where each row
+contains the onset and offset times in seconds.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing processing parameters.</p></li>
+<li><p><strong>max_unit_len_sec</strong> (<em>float</em>) – Maximum unit length in seconds to determine padding.</p></li>
+<li><p><strong>min_unit_len_sec</strong> (<em>float</em><em>, </em><em>optional</em>) – Minimum unit length in seconds. Segments shorter than this are dropped.
+If None, defaults to config[‘simple_min_unit_length’] or 0.0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>A tuple containing:</p>
+<ol class="arabic simple">
+<li><p>List of processed spectrograms, each with shape equal to
+config[‘target_shape’] and dtype float32.</p></li>
+<li><p>List of original indices for the returned spectrograms, useful for
+mapping back to metadata if some segments were skipped.</p></li>
+<li><p>Dictionary containing counts of dropped segments by reason.</p></li>
+</ol>
+<p>If no segments are provided or all are skipped, empty lists are returned.</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple of (list of np.ndarray, list of int, dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chatter.config.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">chatter.config</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chatter.features.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">chatter.features</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset.h5_path"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset.h5_path</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset.indices"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset.indices</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset._h5"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset._h5</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.SpectrogramDataset.__init__"><code class="docutils literal notranslate"><span class="pre">SpectrogramDataset.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.preprocess_audio_data"><code class="docutils literal notranslate"><span class="pre">preprocess_audio_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.compute_spectrogram"><code class="docutils literal notranslate"><span class="pre">compute_spectrogram()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.segment_file"><code class="docutils literal notranslate"><span class="pre">segment_file()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.segment_file_simple"><code class="docutils literal notranslate"><span class="pre">segment_file_simple()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.data.slice_and_process_spectrograms"><code class="docutils literal notranslate"><span class="pre">slice_and_process_spectrograms()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mason Youngblood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Mason Youngblood.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

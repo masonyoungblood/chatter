@@ -1,0 +1,1888 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chatter.data &#8212; Chatter Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=e7293a18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.2.0/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.12.1/dist/mermaid.esm.min.mjs";
+
+const defaultStyle = document.createElement('style');
+defaultStyle.textContent = `pre.mermaid {
+    /* Same as .mermaid-container > pre */
+    display: block;
+    width: 100%;
+}
+
+pre.mermaid > svg {
+    /* Same as .mermaid-container > pre > svg */
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+`;
+document.head.appendChild(defaultStyle);
+
+const fullscreenStyle = document.createElement('style');
+fullscreenStyle.textContent = `.mermaid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.mermaid-container > pre {
+    display: block;
+    width: 100%;
+}
+
+.mermaid-container > pre > svg {
+    height: 500px;
+    width: 100%;
+    max-width: 100% !important;
+}
+
+.mermaid-fullscreen-btn {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    color: #333;
+}
+
+.mermaid-fullscreen-btn:hover {
+    opacity: 100% !important;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-btn.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-btn.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 95vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    z-index: 9999;
+    padding: 20px;
+    overflow: auto;
+}
+
+.mermaid-fullscreen-modal.dark-theme {
+    background: rgba(0, 0, 0, 0.98);
+}
+
+.mermaid-fullscreen-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen {
+    position: relative;
+    width: 95vw;
+    height: 90vh;
+    max-width: 95vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen.dark-theme {
+    background: #1a1a1a;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.mermaid-container-fullscreen pre.mermaid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mermaid-container-fullscreen .mermaid svg {
+    height: 100% !important;
+    width: 100% !important;
+    cursor: grab;
+}
+
+.mermaid-fullscreen-close {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s;
+    font-size: 24px;
+    line-height: 1;
+    color: #333;
+}
+
+.mermaid-fullscreen-close:hover {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.mermaid-fullscreen-close.dark-theme {
+    background: rgba(50, 50, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #e0e0e0;
+}
+
+.mermaid-fullscreen-close.dark-theme:hover {
+    background: rgba(60, 60, 60, 1);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.mermaid-fullscreen-modal .mermaid-fullscreen-btn {
+    display: none !important;
+}`;
+document.head.appendChild(fullscreenStyle);
+
+// Detect if page has dark background
+const isDarkTheme = () => {
+    const bgColor = window.getComputedStyle(document.body).backgroundColor;
+    const match = bgColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)/);
+    if (match) {
+        const r = parseInt(match[1]);
+        const g = parseInt(match[2]);
+        const b = parseInt(match[3]);
+        const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+        return brightness < 128;
+    }
+    return false;
+};
+
+const load = async () => {
+    await mermaid.run();
+
+    const all_mermaids = document.querySelectorAll(".mermaid");
+    const mermaids_processed = document.querySelectorAll(".mermaid[data-processed='true']");
+
+    if ("False" === "True") {
+        const mermaids_to_add_zoom = -1 === -1 ? all_mermaids.length : -1;
+        if(mermaids_to_add_zoom > 0) {
+            var svgs = d3.selectAll("");
+            if(all_mermaids.length !== mermaids_processed.length) {
+                setTimeout(load, 200);
+                return;
+            } else if(svgs.size() !== mermaids_to_add_zoom) {
+                setTimeout(load, 200);
+                return;
+            } else {
+                svgs.each(function() {
+                    var svg = d3.select(this);
+                    svg.html("<g class='wrapper'>" + svg.html() + "</g>");
+                    var inner = svg.select("g");
+                    var zoom = d3.zoom().on("zoom", function(event) {
+                        inner.attr("transform", event.transform);
+                    });
+                    svg.call(zoom);
+                });
+            }
+        }
+    } else if(all_mermaids.length !== mermaids_processed.length) {
+        // Wait for mermaid to process all diagrams
+        setTimeout(load, 200);
+        return;
+    }
+
+    const darkTheme = isDarkTheme();
+
+    // Stop here if not adding fullscreen capability
+    if ("True" !== "True") return;
+
+    const modal = document.createElement('div');
+    modal.className = 'mermaid-fullscreen-modal' + (darkTheme ? ' dark-theme' : '');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Fullscreen diagram viewer');
+    modal.innerHTML = `
+        <button class="mermaid-fullscreen-close${darkTheme ? ' dark-theme' : ''}" aria-label="Close fullscreen">✕</button>
+        <div class="mermaid-container-fullscreen${darkTheme ? ' dark-theme' : ''}"></div>
+    `;
+    document.body.appendChild(modal);
+
+    const modalContent = modal.querySelector('.mermaid-container-fullscreen');
+    const closeBtn = modal.querySelector('.mermaid-fullscreen-close');
+
+    let previousScrollOffset = [window.scrollX, window.scrollY];
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        modalContent.innerHTML = '';
+        document.body.style.overflow = ''
+        window.scrollTo({left: previousScrollOffset[0], top: previousScrollOffset[1], behavior: 'instant'});
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    const allButtons = [];
+
+    document.querySelectorAll('.mermaid').forEach((mermaidDiv) => {
+        if (mermaidDiv.parentNode.classList.contains('mermaid-container') ||
+            mermaidDiv.closest('.mermaid-fullscreen-modal')) {
+            return;
+        }
+
+        const container = document.createElement('div');
+        container.className = 'mermaid-container';
+        mermaidDiv.parentNode.insertBefore(container, mermaidDiv);
+        container.appendChild(mermaidDiv);
+
+        const fullscreenBtn = document.createElement('button');
+        fullscreenBtn.className = 'mermaid-fullscreen-btn' + (darkTheme ? ' dark-theme' : '');
+        fullscreenBtn.setAttribute('aria-label', 'View diagram in fullscreen');
+        fullscreenBtn.textContent = '⛶';
+        fullscreenBtn.style.opacity = '50%';
+
+        // Calculate dynamic position based on diagram's margin and padding
+        const diagramStyle = window.getComputedStyle(mermaidDiv);
+        const marginTop = parseFloat(diagramStyle.marginTop) || 0;
+        const marginRight = parseFloat(diagramStyle.marginRight) || 0;
+        const paddingTop = parseFloat(diagramStyle.paddingTop) || 0;
+        const paddingRight = parseFloat(diagramStyle.paddingRight) || 0;
+        fullscreenBtn.style.top = `${marginTop + paddingTop + 4}px`;
+        fullscreenBtn.style.right = `${marginRight + paddingRight + 4}px`;
+
+        fullscreenBtn.addEventListener('click', () => {
+            previousScrollOffset = [window.scroll, window.scrollY];
+            const clone = mermaidDiv.cloneNode(true);
+            modalContent.innerHTML = '';
+            modalContent.appendChild(clone);
+
+            const svg = clone.querySelector('svg');
+            if (svg) {
+                svg.removeAttribute('width');
+                svg.removeAttribute('height');
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+                svg.style.maxWidth = '100%';
+                svg.style.sdisplay = 'block';
+
+                if ("False" === "True") {
+                    setTimeout(() => {
+                        const g = svg.querySelector('g');
+                        if (g) {
+                            var svgD3 = d3.select(svg);
+                            svgD3.html("<g class='wrapper'>" + svgD3.html() + "</g>");
+                            var inner = svgD3.select("g");
+                            var zoom = d3.zoom().on("zoom", function(event) {
+                                inner.attr("transform", event.transform);
+                            });
+                            svgD3.call(zoom);
+                        }
+                    }, 100);
+                }
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        container.appendChild(fullscreenBtn);
+        allButtons.push(fullscreenBtn);
+    });
+
+    // Update theme classes when theme changes
+    const updateTheme = () => {
+        const dark = isDarkTheme();
+        allButtons.forEach(btn => {
+            if (dark) {
+                btn.classList.add('dark-theme');
+            } else {
+                btn.classList.remove('dark-theme');
+            }
+        });
+        if (dark) {
+            modal.classList.add('dark-theme');
+            modalContent.classList.add('dark-theme');
+            closeBtn.classList.add('dark-theme');
+        } else {
+            modal.classList.remove('dark-theme');
+            modalContent.classList.remove('dark-theme');
+            closeBtn.classList.remove('dark-theme');
+        }
+    };
+
+    // Watch for theme changes
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class', 'style', 'data-theme']
+    });
+    observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class', 'style']
+    });
+};
+
+window.addEventListener("load", load);
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/chatter/data';</script>
+    <link rel="icon" href="../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Chatter Documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Chatter Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../contents/installation.html">Installing <code class="docutils literal notranslate"><span class="pre">chatter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/flow_diagram.html">Flow diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/preparation.html">Preparation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Full Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../contents/cassins_vireo.html">Cassin’s vireo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Short Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../contents/humpback_whale.html">Humpback whales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/chimpanzee.html">Chimpanzees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/egyptian_fruit_bat.html">Egyptian fruit bats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/human.html">Humans</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../_autosummary/chatter.html">chatter</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.analyzer.html">chatter.analyzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.config.html">chatter.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.data.html">chatter.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.features.html">chatter.features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.models.html">chatter.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.trainer.html">chatter.trainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/chatter.utils.html">chatter.utils</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/masonyoungblood/chatter" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for chatter.data</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Core data processing utilities for Chatter.</span>
+
+<span class="sd">This module also configures logging/noise behavior for a few noisy</span>
+<span class="sd">dependencies (e.g., TensorFlow Lite via birdnetlib) so that downstream</span>
+<span class="sd">pipelines like `extract_species_clips` run without spamming the console.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Silence annoying warnings from specific third‑party packages</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+    <span class="s2">&quot;ignore&quot;</span><span class="p">,</span>
+    <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span>
+    <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*pkg_resources is deprecated as an API.*&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Reduce TensorFlow / TF Lite info logging (e.g., XNNPACK delegate messages)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;TF_CPP_MIN_LOG_LEVEL&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">)</span>  <span class="c1"># hide INFO and WARNING logs</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;tensorflow&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;absl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="c1"># Import necessary libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">librosa</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">noisereduce</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">wavfile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydub</span><span class="w"> </span><span class="kn">import</span> <span class="n">AudioSegment</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.exposure</span><span class="w"> </span><span class="kn">import</span> <span class="n">equalize_hist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.filters.rank</span><span class="w"> </span><span class="kn">import</span> <span class="n">median</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.morphology</span><span class="w"> </span><span class="kn">import</span> <span class="n">dilation</span><span class="p">,</span> <span class="n">disk</span><span class="p">,</span> <span class="n">erosion</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skimage.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">img_as_ubyte</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pykanto.signal.segment</span><span class="w"> </span><span class="kn">import</span> <span class="n">find_units</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pykanto.signal.filter</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_blur</span><span class="p">,</span> <span class="n">kernels</span><span class="p">,</span> <span class="n">norm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydub.scipy_effects</span><span class="w"> </span><span class="kn">import</span> <span class="n">high_pass_filter</span><span class="p">,</span> <span class="n">low_pass_filter</span>
+
+<span class="c1"># Optional imports with fallbacks</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">birdnetlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Recording</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">birdnetlib.analyzer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Analyzer</span> <span class="k">as</span> <span class="n">BirdNETAnalyzer</span>
+
+    <span class="n">BIRDNET_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">BIRDNET_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Recording</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;birdnetlib not available. Install it to use species detection features.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">BirdNETAnalyzer</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;birdnetlib not available. Install it to use species detection features.&quot;</span>
+            <span class="p">)</span>
+
+
+<span class="c1"># Optional imports with fallbacks</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">audiocomplib</span><span class="w"> </span><span class="kn">import</span> <span class="n">AudioCompressor</span><span class="p">,</span> <span class="n">PeakLimiter</span>
+
+    <span class="n">AUDIO_COMPRESSION_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">AUDIO_COMPRESSION_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">AudioCompressor</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;audiocomplib not available. Install it to use audio compression features.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">PeakLimiter</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;audiocomplib not available. Install it to use audio limiting features.&quot;</span>
+            <span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">biodenoising</span><span class="w"> </span><span class="kn">import</span> <span class="n">pretrained</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">biodenoising.denoiser.dsp</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_audio</span>
+
+    <span class="n">BIODENOISING_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">BIODENOISING_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">pretrained</span><span class="p">:</span>
+        <span class="nd">@staticmethod</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;biodenoising not available. Install it to use biodenoising features.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">convert_audio</span><span class="p">:</span>
+        <span class="nd">@staticmethod</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+                <span class="s2">&quot;biodenoising not available. Install it to use biodenoising features.&quot;</span>
+            <span class="p">)</span>
+
+
+<span class="c1"># Import local utility functions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">suppress_stdout_stderr</span><span class="p">,</span>
+    <span class="n">normalize_spec</span><span class="p">,</span>
+    <span class="n">pad_center_zero</span><span class="p">,</span>
+    <span class="n">downsample_spectrogram</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Global cache for biodenoising model to avoid reloading in workers</span>
+<span class="n">_BIODENOISING_MODEL_CACHE</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="c1"># Helper to load biodenoising model</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_biodenoising_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load and cache the biodenoising model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">BIODENOISING_AVAILABLE</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;biodenoising not available. Install it to use biodenoising features.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># check if model is already cached</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_BIODENOISING_MODEL_CACHE</span><span class="p">:</span>
+        <span class="c1"># get the model function from pretrained module</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">pretrained</span><span class="p">,</span> <span class="n">model_name</span><span class="p">):</span>
+            <span class="n">model_func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">pretrained</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="c1"># load model to cpu</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">model_func</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;cpu&quot;</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+            <span class="c1"># cache the model</span>
+            <span class="n">_BIODENOISING_MODEL_CACHE</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">model</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Biodenoising model </span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+
+    <span class="c1"># return cached model</span>
+    <span class="k">return</span> <span class="n">_BIODENOISING_MODEL_CACHE</span><span class="p">[</span><span class="n">model_name</span><span class="p">]</span>
+
+
+<span class="c1"># PyTorch dataset for lazy loading of spectrograms from HDF5 file with worker-safe file handling</span>
+<div class="viewcode-block" id="SpectrogramDataset">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.SpectrogramDataset">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SpectrogramDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PyTorch Dataset for lazy loading of spectrograms from an HDF5 file.</span>
+
+<span class="sd">    This dataset reads spectrograms on demand from an HDF5 dataset named</span>
+<span class="sd">    &#39;spectrograms&#39;. It is designed to work correctly with parallel DataLoader</span>
+<span class="sd">    workers by opening a separate file handle per worker process.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    h5_path : str</span>
+<span class="sd">        Path to the HDF5 file containing the spectrograms.</span>
+<span class="sd">    indices : list of int</span>
+<span class="sd">        List of integer indices referring to the entries in the &#39;spectrograms&#39;</span>
+<span class="sd">        dataset.</span>
+<span class="sd">    _h5 : h5py.File or None</span>
+<span class="sd">        Lazily opened HDF5 file handle. It is not pickled across processes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Initialize dataset</span>
+<div class="viewcode-block" id="SpectrogramDataset.__init__">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.SpectrogramDataset.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">indices</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the spectrogram dataset for lazy HDF5 loading.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        h5_path : str or Path</span>
+<span class="sd">            Path to the HDF5 file containing the &#39;spectrograms&#39; dataset.</span>
+<span class="sd">        indices : list of int</span>
+<span class="sd">            List of dataset indices that this instance will expose through</span>
+<span class="sd">            __getitem__.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Store path and indices for lazy loading</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h5_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">h5_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h5</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="c1"># Lazy handle opener</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_require_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Open the HDF5 file handle lazily for the current worker process.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        h5py.File</span>
+<span class="sd">            Open HDF5 file handle in read-only mode with SWMR support enabled.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Open file lazily per worker process</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h5</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h5_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">libver</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span><span class="p">,</span> <span class="n">swmr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_h5</span>
+
+    <span class="c1"># Get length</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the total number of spectrograms in the dataset.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Number of spectrograms accessible through this dataset.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span>
+
+    <span class="c1"># Get item by index</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve a single spectrogram from the HDF5 file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        idx : int</span>
+<span class="sd">            Index within the subset defined by &#39;indices&#39;.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        torch.Tensor</span>
+<span class="sd">            Spectrogram tensor with shape (1, height, width). If the underlying</span>
+<span class="sd">            dataset is stored as uint8, values are scaled to the [0, 1] range;</span>
+<span class="sd">            otherwise, the data is returned as float32 without rescaling.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Open HDF5 file lazily per worker</span>
+        <span class="n">hf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_require_handle</span><span class="p">()</span>
+
+        <span class="c1"># Get actual index from subset list</span>
+        <span class="n">data_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+        <span class="c1"># Retrieve spectrogram from dataset</span>
+        <span class="n">spec</span> <span class="o">=</span> <span class="n">hf</span><span class="p">[</span><span class="s2">&quot;spectrograms&quot;</span><span class="p">][</span><span class="n">data_idx</span><span class="p">]</span>
+
+        <span class="c1"># Convert to tensor and add channel dimension</span>
+        <span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="mf">255.0</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+
+    <span class="c1"># Prepare for pickling</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Prepare the dataset for pickling without an open HDF5 file handle.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict</span>
+<span class="sd">            State dictionary for pickling, with the HDF5 file handle set to</span>
+<span class="sd">            None to avoid cross-process issues.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Ensure HDF5 handle is not pickled across processes</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">state</span><span class="p">[</span><span class="s2">&quot;_h5&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">state</span></div>
+
+
+
+<span class="c1"># Parallelized helpers</span>
+
+
+<span class="c1"># Worker to extract species clips</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_extract_species_worker</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect a target species in a single audio file and export clips.</span>
+
+<span class="sd">    This worker function is called by parallel processes. It analyzes an audio</span>
+<span class="sd">    file using BirdNET, filters for a target species above a confidence</span>
+<span class="sd">    threshold, combines adjacent detections, adds a buffer, and saves each</span>
+<span class="sd">    resulting interval as a new WAV file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    args : tuple</span>
+<span class="sd">        A tuple containing the arguments: (input_path, input_dir, output_dir,</span>
+<span class="sd">        species, confidence_threshold, buffer_seconds).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        True if processing completes successfully, False otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Unpack arguments</span>
+    <span class="n">input_path</span><span class="p">,</span> <span class="n">input_dir</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">species</span><span class="p">,</span> <span class="n">confidence_threshold</span><span class="p">,</span> <span class="n">buffer_seconds</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">args</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">BIRDNET_AVAILABLE</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BirdNET not available, skipping species detection for </span><span class="si">{</span><span class="n">input_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Load audio file to get duration and for slicing</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span>
+        <span class="n">total_duration_s</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">audio</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1000.0</span>
+
+        <span class="c1"># Analyze audio file with BirdNET</span>
+        <span class="n">detections</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="n">suppress_stdout_stderr</span><span class="p">():</span>
+            <span class="n">analyzer</span> <span class="o">=</span> <span class="n">BirdNETAnalyzer</span><span class="p">()</span>
+            <span class="n">recording</span> <span class="o">=</span> <span class="n">Recording</span><span class="p">(</span>
+                <span class="n">analyzer</span><span class="o">=</span><span class="n">analyzer</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">input_path</span><span class="p">),</span>
+                <span class="n">min_conf</span><span class="o">=</span><span class="n">confidence_threshold</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">recording</span><span class="o">.</span><span class="n">analyze</span><span class="p">()</span>
+            <span class="n">detections</span> <span class="o">=</span> <span class="n">recording</span><span class="o">.</span><span class="n">detections</span>
+
+        <span class="c1"># Filter for the target species</span>
+        <span class="n">species_intervals</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">detections</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;common_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">species</span><span class="p">:</span>
+                <span class="n">species_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;end_time&quot;</span><span class="p">]))</span>
+
+        <span class="c1"># Return early if no detections are found</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">species_intervals</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="c1"># Sort intervals by start time to prepare for merging</span>
+        <span class="n">species_intervals</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="c1"># Combine adjacent or overlapping intervals</span>
+        <span class="n">combined_intervals</span> <span class="o">=</span> <span class="p">[</span><span class="n">species_intervals</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+        <span class="k">for</span> <span class="n">next_start</span><span class="p">,</span> <span class="n">next_end</span> <span class="ow">in</span> <span class="n">species_intervals</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">last_start</span><span class="p">,</span> <span class="n">last_end</span> <span class="o">=</span> <span class="n">combined_intervals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">next_start</span> <span class="o">&lt;=</span> <span class="n">last_end</span><span class="p">:</span>
+                <span class="n">combined_intervals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">last_start</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">last_end</span><span class="p">,</span> <span class="n">next_end</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">combined_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">next_start</span><span class="p">,</span> <span class="n">next_end</span><span class="p">))</span>
+
+        <span class="c1"># Add buffer to each combined interval</span>
+        <span class="n">buffered_intervals</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">start_s</span><span class="p">,</span> <span class="n">end_s</span> <span class="ow">in</span> <span class="n">combined_intervals</span><span class="p">:</span>
+            <span class="n">buffered_start</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">start_s</span> <span class="o">-</span> <span class="n">buffer_seconds</span><span class="p">)</span>
+            <span class="n">buffered_end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">total_duration_s</span><span class="p">,</span> <span class="n">end_s</span> <span class="o">+</span> <span class="n">buffer_seconds</span><span class="p">)</span>
+            <span class="n">buffered_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">buffered_start</span><span class="p">,</span> <span class="n">buffered_end</span><span class="p">))</span>
+
+        <span class="c1"># Create the relative output directory</span>
+        <span class="n">relative_path</span> <span class="o">=</span> <span class="n">input_path</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">input_dir</span><span class="p">)</span>
+        <span class="n">clip_output_dir</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="n">relative_path</span><span class="o">.</span><span class="n">parent</span>
+        <span class="n">clip_output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Export each buffered interval as a new WAV file</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">start_s</span><span class="p">,</span> <span class="n">end_s</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">buffered_intervals</span><span class="p">):</span>
+            <span class="n">species_name_safe</span> <span class="o">=</span> <span class="n">species</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+            <span class="n">output_filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">input_path</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">species_name_safe</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">start_s</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s-</span><span class="si">{</span><span class="n">end_s</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s.wav&quot;</span>
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">clip_output_dir</span> <span class="o">/</span> <span class="n">output_filename</span>
+
+            <span class="n">start_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">start_s</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="n">end_ms</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">end_s</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+            <span class="n">clip</span> <span class="o">=</span> <span class="n">audio</span><span class="p">[</span><span class="n">start_ms</span><span class="p">:</span><span class="n">end_ms</span><span class="p">]</span>
+
+            <span class="n">clip</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;wav&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing </span><span class="si">{</span><span class="n">input_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="c1"># Core logic for preprocessing a single audio segment</span>
+<div class="viewcode-block" id="preprocess_audio_data">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.preprocess_audio_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">preprocess_audio_data</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Core preprocessing pipeline for a pydub AudioSegment.</span>
+
+<span class="sd">    This function applies the full preprocessing chain: fade in/out, format conversion,</span>
+<span class="sd">    filtering, amplitude normalization, noise reduction (noisereduce or biodenoising),</span>
+<span class="sd">    compression, limiting, and final normalization.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    audio : pydub.AudioSegment</span>
+<span class="sd">        Input audio segment.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing preprocessing parameters.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Processed audio data as a 1D numpy array of type int16.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Apply short fade-in and fade-out before any other processing</span>
+    <span class="n">fade_ms</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;fade_ms&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">fade_in</span><span class="p">(</span><span class="n">fade_ms</span><span class="p">)</span><span class="o">.</span><span class="n">fade_out</span><span class="p">(</span><span class="n">fade_ms</span><span class="p">)</span>
+
+    <span class="c1"># Standardize to mono and resample to target sample rate</span>
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">set_channels</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">set_frame_rate</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Apply frequency filters if specified</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;high_pass&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">high_pass_filter</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;high_pass&quot;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;low_pass&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">low_pass_filter</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;low_pass&quot;</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="c1"># Normalize amplitude to target dBFS level</span>
+    <span class="n">audio</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">apply_gain</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;target_dbfs&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">audio</span><span class="o">.</span><span class="n">dBFS</span><span class="p">)</span>
+
+    <span class="c1"># Convert pydub audio to NumPy array for processing</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">audio</span><span class="o">.</span><span class="n">get_array_of_samples</span><span class="p">())</span>
+    <span class="n">max_int</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">audio</span><span class="o">.</span><span class="n">sample_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">audio_float</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">max_int</span>
+
+    <span class="c1"># Sanitize samples and add dithering to prevent silence issues</span>
+    <span class="n">audio_float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">audio_float</span><span class="p">)</span>
+    <span class="n">audio_float</span> <span class="o">+=</span> <span class="mf">1e-10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">audio_float</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># Apply biodenoising if enabled</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;use_biodenoising&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+        <span class="c1"># Load configured model (using cache)</span>
+        <span class="n">model_name</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;biodenoising_model&quot;</span><span class="p">,</span> <span class="s2">&quot;biodenoising16k_dns48&quot;</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">_get_biodenoising_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+        <span class="c1"># Prepare audio tensor (add channel dimension)</span>
+        <span class="n">wav_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">audio_float</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Convert audio to model sample rate</span>
+        <span class="n">wav_model</span> <span class="o">=</span> <span class="n">convert_audio</span><span class="p">(</span>
+            <span class="n">wav_tensor</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span> <span class="n">model</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">chin</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Set chunking parameters to avoid memory overload</span>
+        <span class="n">chunk_seconds</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">chunk_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chunk_seconds</span> <span class="o">*</span> <span class="n">model</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">)</span>
+        <span class="n">num_frames</span> <span class="o">=</span> <span class="n">wav_model</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">denoised_parts</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Process chunks using the model on CPU</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_frames</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">):</span>
+                <span class="c1"># Extract chunk</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">chunk_size</span><span class="p">,</span> <span class="n">num_frames</span><span class="p">)</span>
+                <span class="n">chunk</span> <span class="o">=</span> <span class="n">wav_model</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
+
+                <span class="c1"># Process chunk (add batch dimension, process, then move to CPU)</span>
+                <span class="c1"># Padding is not usually required for these UNet models on typical lengths</span>
+                <span class="n">processed_chunk</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="kc">None</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">denoised_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">processed_chunk</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>
+
+        <span class="c1"># Stitch chunks back together</span>
+        <span class="n">denoised_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">denoised_parts</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Resample back to original sample rate</span>
+        <span class="n">denoised_tensor</span> <span class="o">=</span> <span class="n">convert_audio</span><span class="p">(</span>
+            <span class="n">denoised_tensor</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span> <span class="mi">1</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Convert back to NumPy and remove channel dimension</span>
+        <span class="n">audio_float</span> <span class="o">=</span> <span class="n">denoised_tensor</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+    <span class="c1"># Apply noisereduce if enabled</span>
+    <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;use_noisereduce&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">audio_float</span> <span class="o">=</span> <span class="n">noisereduce</span><span class="o">.</span><span class="n">reduce_noise</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">audio_float</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span>
+            <span class="n">stationary</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;static&quot;</span><span class="p">],</span>
+            <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">n_std_thresh_stationary</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;threshold&quot;</span><span class="p">],</span>
+            <span class="n">thresh_n_mult_nonstationary</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;threshold&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Renormalize to the target dBFS (converting back to AudioSegment and then NumPy)</span>
+    <span class="c1"># Note: we reconvert to pydub here to leverage apply_gain easily; this maintains the existing flow</span>
+    <span class="n">audio_int16</span> <span class="o">=</span> <span class="p">(</span><span class="n">audio_float</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">15</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+
+    <span class="n">audio_seg</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="p">(</span>
+        <span class="n">audio_int16</span><span class="o">.</span><span class="n">tobytes</span><span class="p">(),</span> <span class="n">frame_rate</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span> <span class="n">sample_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">audio_seg</span> <span class="o">=</span> <span class="n">audio_seg</span><span class="o">.</span><span class="n">apply_gain</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;target_dbfs&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">audio_seg</span><span class="o">.</span><span class="n">dBFS</span><span class="p">)</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">audio_seg</span><span class="o">.</span><span class="n">get_array_of_samples</span><span class="p">())</span>
+
+    <span class="c1"># Recalculate max int based on 16-bit sample width</span>
+    <span class="n">max_int</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">audio_seg</span><span class="o">.</span><span class="n">sample_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">audio_final</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="n">max_int</span>
+    <span class="n">audio_final</span> <span class="o">=</span> <span class="n">audio_final</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Instantiate the compressor and limiter</span>
+    <span class="n">compressor</span> <span class="o">=</span> <span class="n">AudioCompressor</span><span class="p">(</span>
+        <span class="n">threshold</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;target_dbfs&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;compressor_amount&quot;</span><span class="p">],</span>
+        <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">attack_time_ms</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">release_time_ms</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">variable_release</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">limiter</span> <span class="o">=</span> <span class="n">PeakLimiter</span><span class="p">(</span>
+        <span class="n">threshold</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;target_dbfs&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;limiter_amount&quot;</span><span class="p">],</span>
+        <span class="n">attack_time_ms</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">release_time_ms</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">variable_release</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Apply compressor and limiter directly to the NumPy array</span>
+    <span class="k">if</span> <span class="n">AUDIO_COMPRESSION_AVAILABLE</span><span class="p">:</span>
+        <span class="n">audio_final</span> <span class="o">=</span> <span class="n">compressor</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">audio_final</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">])</span>
+        <span class="n">audio_final</span> <span class="o">=</span> <span class="n">limiter</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">audio_final</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">])</span>
+        <span class="n">audio_final</span> <span class="o">=</span> <span class="n">audio_final</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">&quot;Warning: Audio compression/limiting not available. Install audiocomplib for better audio processing.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Normalize the final signal and convert to 16-bit integer</span>
+    <span class="n">peak</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">audio_final</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">peak</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">audio_final</span> <span class="o">=</span> <span class="n">audio_final</span> <span class="o">/</span> <span class="n">peak</span>
+
+    <span class="c1"># Apply optional noise floor logic: silence any audio below the noise floor (post-processing)</span>
+    <span class="n">noise_floor</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noise_floor&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">noise_floor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Calculate amplitude threshold from dB noise floor (assuming normalized -1 to 1)</span>
+        <span class="c1"># Since signal is peak normalized to 1.0 (0 dBFS), noise floor is relative to that</span>
+        <span class="n">amplitude_threshold</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="n">noise_floor</span> <span class="o">/</span> <span class="mf">20.0</span><span class="p">)</span>
+
+        <span class="c1"># Zero out samples below threshold (avoid division by zero)</span>
+        <span class="k">if</span> <span class="n">amplitude_threshold</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">audio_final</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">amplitude_threshold</span>
+            <span class="n">audio_final</span> <span class="o">=</span> <span class="n">audio_final</span> <span class="o">*</span> <span class="n">mask</span>
+
+    <span class="n">audio_int16_final</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">audio_final</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">max</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+
+    <span class="c1"># Return final processed audio</span>
+    <span class="k">return</span> <span class="n">audio_int16_final</span></div>
+
+
+
+<span class="c1"># Preprocess a single audio file with denoising, filtering, and normalization</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_preprocess_wav_worker</span><span class="p">(</span><span class="n">input_path</span><span class="p">,</span> <span class="n">output_path</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Denoise, standardize, and normalize a single audio file in memory.</span>
+
+<span class="sd">    This function is designed to be called from parallel worker processes. It</span>
+<span class="sd">    loads an audio file, converts it to mono, resamples it to a target sampling</span>
+<span class="sd">    rate, applies optional high-pass and low-pass filters, normalizes amplitude,</span>
+<span class="sd">    performs noise reduction, applies dynamic range compression and limiting,</span>
+<span class="sd">    and saves the result as a 16-bit WAV file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input_path : Path</span>
+<span class="sd">        Path to the input audio file in any format supported by pydub.</span>
+<span class="sd">    output_path : Path</span>
+<span class="sd">        Path at which to save the processed WAV file.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing preprocessing parameters. Expected</span>
+<span class="sd">        keys include &#39;sr&#39; (int, target sample rate), &#39;target_dbfs&#39; (float,</span>
+<span class="sd">        target loudness in dBFS), &#39;static&#39; (bool for stationary noise reduction),</span>
+<span class="sd">        &#39;threshold&#39; (float for noise reduction), and optionally &#39;high_pass&#39;</span>
+<span class="sd">        and &#39;low_pass&#39; (cutoff frequencies in Hz).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        True if preprocessing succeeds without raising an exception, and False</span>
+<span class="sd">        otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Ensure output directory exists</span>
+        <span class="n">output_path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Load audio file using pydub to handle multiple formats</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">input_path</span><span class="p">)</span>
+
+        <span class="c1"># Process audio using the shared core logic</span>
+        <span class="n">audio_int16</span> <span class="o">=</span> <span class="n">preprocess_audio_data</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+        <span class="c1"># Save processed audio as WAV file</span>
+        <span class="n">wavfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output_path</span><span class="p">),</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span> <span class="n">audio_int16</span><span class="p">)</span>
+
+        <span class="c1"># Return success</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error preprocessing </span><span class="si">{</span><span class="n">input_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="c1"># Compute spectrogram from audio array</span>
+<div class="viewcode-block" id="compute_spectrogram">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.compute_spectrogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_spectrogram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute a mel spectrogram in dB scale from an audio time series.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray</span>
+<span class="sd">        Audio time series.</span>
+<span class="sd">    sr : int</span>
+<span class="sd">        Sample rate.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing spectrogram parameters (n_fft, hop_length, etc.).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Mel spectrogram in decibel scale.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">mel_spec</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">melspectrogram</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">n_fft</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;n_fft&quot;</span><span class="p">],</span>
+        <span class="n">win_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;win_length&quot;</span><span class="p">],</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">],</span>
+        <span class="n">n_mels</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;n_mels&quot;</span><span class="p">],</span>
+        <span class="n">fmin</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;fmin&quot;</span><span class="p">],</span>
+        <span class="n">fmax</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;fmax&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">librosa</span><span class="o">.</span><span class="n">power_to_db</span><span class="p">(</span><span class="n">mel_spec</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># Segment a mel spectrogram using pykanto image-based method</span>
+<div class="viewcode-block" id="segment_file">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.segment_file">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">segment_file</span><span class="p">(</span><span class="n">mel_spectrogram</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Segment a full mel spectrogram using the high-fidelity pykanto workflow.</span>
+
+<span class="sd">    This function applies an image-processing pipeline inspired by pykanto to</span>
+<span class="sd">    identify syllable-like acoustic units in a spectrogram. It uses histogram</span>
+<span class="sd">    equalization, median filtering, morphological operations, and Gaussian</span>
+<span class="sd">    blurring, followed by pykanto&#39;s &#39;find_units&#39; to obtain onset and offset</span>
+<span class="sd">    times.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mel_spectrogram : np.ndarray</span>
+<span class="sd">        Full mel spectrogram in decibel scale, with shape (n_mels, time_frames).</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing segmentation parameters.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of segment boundaries with shape (n_segments, 2), where each row</span>
+<span class="sd">        contains the onset and offset times (in seconds or frames, depending</span>
+<span class="sd">        on pykanto configuration). If no units are found or an error occurs,</span>
+<span class="sd">        an empty array with shape (0,) is returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Create a copy of the spectrogram for segmentation-only processing</span>
+        <span class="n">spec_for_segmentation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">mel_spectrogram</span><span class="p">)</span>
+
+        <span class="c1"># Apply the noise floor mask to the copy</span>
+        <span class="n">noise_floor</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pykanto_noise_floor&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">)</span>
+        <span class="n">spec_for_segmentation</span><span class="p">[</span><span class="n">spec_for_segmentation</span> <span class="o">&lt;</span> <span class="n">noise_floor</span><span class="p">]</span> <span class="o">=</span> <span class="n">noise_floor</span>
+
+        <span class="c1"># Create SimpleNamespace to mimic pykanto parameters object using separated parameters</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span>
+            <span class="n">top_dB</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_top_dB&quot;</span><span class="p">],</span>
+            <span class="n">gauss_sigma</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_gauss_sigma&quot;</span><span class="p">],</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span>
+            <span class="n">sample_rate</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">],</span>
+            <span class="n">n_fft</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;n_fft&quot;</span><span class="p">],</span>
+            <span class="n">window_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;win_length&quot;</span><span class="p">],</span>
+            <span class="n">num_mel_bins</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;n_mels&quot;</span><span class="p">],</span>
+            <span class="n">max_dB</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_max_dB&quot;</span><span class="p">],</span>
+            <span class="n">dB_delta</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_dB_delta&quot;</span><span class="p">],</span>
+            <span class="n">silence_threshold</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_silence_threshold&quot;</span><span class="p">],</span>
+            <span class="n">min_silence_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_min_silence_length&quot;</span><span class="p">],</span>
+            <span class="n">max_unit_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_max_unit_length&quot;</span><span class="p">],</span>
+            <span class="n">min_unit_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_min_unit_length&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Perform pykanto image-processing pipeline on the masked spectrogram</span>
+        <span class="n">img_eq</span> <span class="o">=</span> <span class="n">equalize_hist</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">spec_for_segmentation</span><span class="p">))</span>
+        <span class="n">img_med</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">img_eq</span><span class="p">),</span> <span class="n">disk</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">img_eroded</span> <span class="o">=</span> <span class="n">erosion</span><span class="p">(</span><span class="n">img_med</span><span class="p">,</span> <span class="n">kernels</span><span class="o">.</span><span class="n">erosion_kern</span><span class="p">)</span>
+        <span class="n">img_dilated</span> <span class="o">=</span> <span class="n">dilation</span><span class="p">(</span><span class="n">img_eroded</span><span class="p">,</span> <span class="n">kernels</span><span class="o">.</span><span class="n">dilation_kern</span><span class="p">)</span>
+        <span class="n">img_dilated</span> <span class="o">=</span> <span class="n">dilation</span><span class="p">(</span><span class="n">img_dilated</span><span class="p">,</span> <span class="n">kernels</span><span class="o">.</span><span class="n">erosion_kern</span><span class="p">)</span>
+        <span class="n">img_norm</span> <span class="o">=</span> <span class="n">equalize_hist</span><span class="p">(</span><span class="n">img_dilated</span><span class="p">)</span>
+
+        <span class="c1"># Normalize image to decibel range</span>
+        <span class="n">img_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span>
+            <span class="n">img_norm</span><span class="p">,</span>
+            <span class="p">(</span><span class="n">img_norm</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">img_norm</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span>
+            <span class="p">(</span><span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="n">top_dB</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Apply Gaussian blur for smoothing</span>
+        <span class="n">img_gauss</span> <span class="o">=</span> <span class="n">gaussian_blur</span><span class="p">(</span><span class="n">img_inv</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">params</span><span class="o">.</span><span class="n">gauss_sigma</span><span class="p">)</span>
+
+        <span class="c1"># Call pykanto find_units function</span>
+        <span class="n">mock_dataset</span> <span class="o">=</span> <span class="n">SimpleNamespace</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">onsets</span><span class="p">,</span> <span class="n">offsets</span> <span class="o">=</span> <span class="n">find_units</span><span class="p">(</span><span class="n">mock_dataset</span><span class="p">,</span> <span class="n">img_gauss</span><span class="p">)</span>
+
+        <span class="c1"># Check if any units were found</span>
+        <span class="k">if</span> <span class="n">onsets</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">offsets</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># No units found; return an empty array and let the caller</span>
+            <span class="c1"># handle any aggregation or summary of these cases.</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="c1"># Return segments as array of [onset, offset] pairs</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">onsets</span><span class="p">,</span> <span class="n">offsets</span><span class="p">))</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error segmenting audio: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span></div>
+
+
+
+<span class="c1"># Segment audio using simple amplitude-based method with librosa</span>
+<div class="viewcode-block" id="segment_file_simple">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.segment_file_simple">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">segment_file_simple</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Segment an audio array based on amplitude using frame-wise RMS energy.</span>
+
+<span class="sd">    This function computes frame-wise RMS energy using short-time analysis,</span>
+<span class="sd">    converts it to decibels relative to full scale (dBFS), and identifies</span>
+<span class="sd">    non-silent intervals as contiguous regions where the RMS level exceeds a</span>
+<span class="sd">    configurable threshold. The threshold can be specified directly in dBFS</span>
+<span class="sd">    or as a linear amplitude ratio and is combined with a configurable noise</span>
+<span class="sd">    floor to produce a single decision boundary. Detected regions separated</span>
+<span class="sd">    by short silences are merged, and the resulting segments are filtered</span>
+<span class="sd">    by minimum and optional maximum unit length constraints.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray</span>
+<span class="sd">        Audio time series as a one-dimensional NumPy array.</span>
+<span class="sd">    sr : int</span>
+<span class="sd">        Sample rate of the audio time series in Hz.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing segmentation parameters.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of segment boundaries with shape (n_segments, 2), where each row</span>
+<span class="sd">        contains the onset and offset times in seconds. If no valid intervals</span>
+<span class="sd">        are found or an error occurs, an empty array with shape (0,) is</span>
+<span class="sd">        returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hop_length</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">]</span>
+        <span class="n">n_fft</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;n_fft&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Set noise floor (minimum dBFS to consider)</span>
+        <span class="n">noise_floor</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simple_noise_floor&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">)</span>
+
+        <span class="c1"># Compute frame-wise RMS energy and convert to dBFS</span>
+        <span class="n">rms</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">rms</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">frame_length</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rms_db</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">rms</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+        <span class="c1"># Derive detection threshold in dBFS</span>
+        <span class="n">threshold_db</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;simple_silence_threshold_db&quot;</span><span class="p">])</span>
+
+        <span class="c1"># Use a single effective threshold that respects both noise floor and silence threshold</span>
+        <span class="n">effective_threshold_db</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">threshold_db</span><span class="p">,</span> <span class="n">noise_floor</span><span class="p">)</span>
+
+        <span class="c1"># Derive boolean mask of active (non-silent) frames</span>
+        <span class="n">active</span> <span class="o">=</span> <span class="n">rms_db</span> <span class="o">&gt;</span> <span class="n">effective_threshold_db</span>
+
+        <span class="c1"># Return empty if everything is silent</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">active</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="c1"># Find contiguous runs of active frames</span>
+        <span class="n">active_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">active</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">breaks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">active_indices</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">start_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="mi">0</span><span class="p">],</span> <span class="n">breaks</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">end_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">breaks</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">active_indices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]))</span>
+
+        <span class="c1"># Frame indices are [start_frame, end_frame_exclusive)</span>
+        <span class="n">intervals_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">active_indices</span><span class="p">[</span><span class="n">start_indices</span><span class="p">],</span>
+                <span class="n">active_indices</span><span class="p">[</span><span class="n">end_indices</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="c1"># Convert frame indices to times in seconds</span>
+        <span class="n">intervals_sec</span> <span class="o">=</span> <span class="n">intervals_frames</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">*</span> <span class="n">hop_length</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
+
+        <span class="c1"># Ensure we do not exceed the actual audio duration</span>
+        <span class="n">audio_duration</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
+        <span class="n">intervals_sec</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">intervals_sec</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">audio_duration</span><span class="p">)</span>
+
+        <span class="c1"># Merge segments separated by short silences</span>
+        <span class="n">min_silence_len_sec</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simple_min_silence_length&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">merged_intervals</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">current_start</span><span class="p">,</span> <span class="n">current_end</span> <span class="o">=</span> <span class="n">intervals_sec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">intervals_sec</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="n">silence_duration</span> <span class="o">=</span> <span class="n">start</span> <span class="o">-</span> <span class="n">current_end</span>
+            <span class="k">if</span> <span class="n">silence_duration</span> <span class="o">&lt;</span> <span class="n">min_silence_len_sec</span><span class="p">:</span>
+                <span class="n">current_end</span> <span class="o">=</span> <span class="n">end</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">merged_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">current_start</span><span class="p">,</span> <span class="n">current_end</span><span class="p">])</span>
+                <span class="n">current_start</span><span class="p">,</span> <span class="n">current_end</span> <span class="o">=</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span>
+        <span class="n">merged_intervals</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">current_start</span><span class="p">,</span> <span class="n">current_end</span><span class="p">])</span>
+
+        <span class="c1"># Filter merged segments by duration constraints</span>
+        <span class="n">min_len</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simple_min_unit_length&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="n">max_len</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simple_max_unit_length&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">))</span>
+
+        <span class="n">final_intervals</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">merged_intervals</span>
+            <span class="k">if</span> <span class="n">min_len</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">max_len</span>
+        <span class="p">]</span>
+
+        <span class="c1"># Return empty array if no intervals match criteria</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">final_intervals</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+        <span class="c1"># Return final intervals as NumPy array</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">final_intervals</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in simple segmentation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span></div>
+
+
+
+<span class="c1"># Slice full spectrogram into unit spectrograms and process to target shape</span>
+<div class="viewcode-block" id="slice_and_process_spectrograms">
+<a class="viewcode-back" href="../../_autosummary/chatter.data.html#chatter.data.slice_and_process_spectrograms">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">slice_and_process_spectrograms</span><span class="p">(</span>
+    <span class="n">full_spec</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">max_unit_len_sec</span><span class="p">,</span> <span class="n">min_unit_len_sec</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Slice and process unit spectrograms from a full spectrogram matrix.</span>
+
+<span class="sd">    This function takes a full mel spectrogram and a collection of temporal</span>
+<span class="sd">    segments, extracts the corresponding time windows, normalizes each segment,</span>
+<span class="sd">    pads them to a common length, and downsamples them to a fixed target shape.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    full_spec : np.ndarray</span>
+<span class="sd">        Full mel spectrogram with shape (n_mels, time_frames) in decibel scale.</span>
+<span class="sd">    segments : np.ndarray</span>
+<span class="sd">        Array of segment boundaries with shape (n_segments, 2), where each row</span>
+<span class="sd">        contains the onset and offset times in seconds.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing processing parameters.</span>
+<span class="sd">    max_unit_len_sec : float</span>
+<span class="sd">        Maximum unit length in seconds to determine padding.</span>
+<span class="sd">    min_unit_len_sec : float, optional</span>
+<span class="sd">        Minimum unit length in seconds. Segments shorter than this are dropped.</span>
+<span class="sd">        If None, defaults to config[&#39;simple_min_unit_length&#39;] or 0.0.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of (list of np.ndarray, list of int, dict)</span>
+<span class="sd">        A tuple containing:</span>
+
+<span class="sd">        1. List of processed spectrograms, each with shape equal to</span>
+<span class="sd">           config[&#39;target_shape&#39;] and dtype float32.</span>
+<span class="sd">        2. List of original indices for the returned spectrograms, useful for</span>
+<span class="sd">           mapping back to metadata if some segments were skipped.</span>
+<span class="sd">        3. Dictionary containing counts of dropped segments by reason.</span>
+<span class="sd">        </span>
+<span class="sd">        If no segments are provided or all are skipped, empty lists are returned.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Initialize list for sliced spectrograms</span>
+    <span class="n">sliced_specs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dropped_counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;empty&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+    <span class="c1"># Convert segment times to spectrogram frame indices</span>
+    <span class="n">start_frames</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">time_to_frames</span><span class="p">(</span>
+        <span class="n">segments</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="n">end_frames</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">time_to_frames</span><span class="p">(</span>
+        <span class="n">segments</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">],</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Slice full spectrogram for each segment</span>
+    <span class="k">for</span> <span class="n">start_frame</span><span class="p">,</span> <span class="n">end_frame</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">start_frames</span><span class="p">,</span> <span class="n">end_frames</span><span class="p">):</span>
+        <span class="c1"># Check for invalid slice</span>
+        <span class="k">if</span> <span class="n">start_frame</span> <span class="o">&gt;=</span> <span class="n">end_frame</span><span class="p">:</span>
+            <span class="n">sliced_specs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">unit_spec</span> <span class="o">=</span> <span class="n">full_spec</span><span class="p">[:,</span> <span class="n">start_frame</span><span class="p">:</span><span class="n">end_frame</span><span class="p">]</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalize_spec</span><span class="p">(</span>
+            <span class="n">unit_spec</span><span class="p">,</span> <span class="n">noise_floor</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simple_noise_floor&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mf">60.0</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">sliced_specs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+
+    <span class="c1"># Return empty list if no spectrograms were generated</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sliced_specs</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[],</span> <span class="n">dropped_counts</span>
+
+    <span class="c1"># Get maximum unit length in frames</span>
+    <span class="n">max_length</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">time_to_frames</span><span class="p">(</span>
+        <span class="n">max_unit_len_sec</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Determine minimum unit length (default to 0 if not set)</span>
+    <span class="k">if</span> <span class="n">min_unit_len_sec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">min_unit_len_sec</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;simple_min_unit_length&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="n">min_length</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">time_to_frames</span><span class="p">(</span>
+        <span class="n">min_unit_len_sec</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">],</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;hop_length&quot;</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Pad and downsample each spectrogram to target shape</span>
+    <span class="n">final_spectrograms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">valid_indices</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">spec</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sliced_specs</span><span class="p">):</span>
+        <span class="c1"># Check for empty or invalid spectrograms from slicing</span>
+        <span class="k">if</span> <span class="n">spec</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dropped_counts</span><span class="p">[</span><span class="s2">&quot;empty&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Check if segment exceeds maximum length</span>
+        <span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
+            <span class="n">dropped_counts</span><span class="p">[</span><span class="s2">&quot;max_length&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Check if segment is smaller than minimum length</span>
+        <span class="k">if</span> <span class="n">spec</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">min_length</span><span class="p">:</span>
+            <span class="n">dropped_counts</span><span class="p">[</span><span class="s2">&quot;min_length&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Check if spectrogram is empty (all zeros)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">dropped_counts</span><span class="p">[</span><span class="s2">&quot;empty&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">continue</span>
+
+        <span class="n">padded</span> <span class="o">=</span> <span class="n">pad_center_zero</span><span class="p">(</span><span class="n">spec</span><span class="p">,</span> <span class="n">max_length</span><span class="p">)</span>
+        <span class="n">final_spec</span> <span class="o">=</span> <span class="n">downsample_spectrogram</span><span class="p">(</span><span class="n">padded</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;target_shape&quot;</span><span class="p">])</span>
+        <span class="n">final_spectrograms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">final_spec</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+        <span class="n">valid_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="c1"># Return list of processed spectrograms and valid indices</span>
+    <span class="k">return</span> <span class="n">final_spectrograms</span><span class="p">,</span> <span class="n">valid_indices</span><span class="p">,</span> <span class="n">dropped_counts</span></div>
+
+
+
+<span class="c1"># Process a single file for segmentation and return spectrograms with metadata</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_process_file_for_segmentation_worker</span><span class="p">(</span>
+    <span class="n">processed_file</span><span class="p">,</span> <span class="n">relative_path</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a processed audio file, segment it, and return spectrograms and metadata.</span>
+
+<span class="sd">    This helper function is designed to be executed in parallel worker</span>
+<span class="sd">    processes. It loads a preprocessed audio file, computes a full mel</span>
+<span class="sd">    spectrogram, performs segmentation using either the pykanto image-based</span>
+<span class="sd">    method or a simple amplitude-based method, slices the full spectrogram into</span>
+<span class="sd">    unit spectrograms, and returns both the spectrograms and associated</span>
+<span class="sd">    metadata for each unit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    processed_file : Path</span>
+<span class="sd">        Path to the preprocessed audio file (typically a standardized WAV file).</span>
+<span class="sd">    relative_path : Path</span>
+<span class="sd">        Relative path from a base directory, used for tracking the source file</span>
+<span class="sd">        in downstream analyses.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        Configuration dictionary containing spectrogram and segmentation</span>
+<span class="sd">        parameters.</span>
+<span class="sd">    simple : bool, optional</span>
+<span class="sd">        If True, use the simple amplitude-based segmentation method. If False,</span>
+<span class="sd">        use the pykanto-inspired image-based segmentation on mel spectrograms.</span>
+<span class="sd">        The default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of (list, list, dict)</span>
+<span class="sd">        A tuple (metadata_list, spectrograms_list, dropped_counts).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Initialize lists for this file</span>
+    <span class="n">file_unit_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">spectrograms_to_return</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">dropped_counts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;empty&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;no_units&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+
+    <span class="c1"># Load audio file</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">y_full</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">processed_file</span><span class="p">),</span> <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading </span><span class="si">{</span><span class="n">processed_file</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file_unit_data</span><span class="p">,</span> <span class="n">spectrograms_to_return</span><span class="p">,</span> <span class="n">dropped_counts</span>
+
+    <span class="c1"># Initialize audio used for segmentation and time offset</span>
+    <span class="n">y_for_segmentation</span> <span class="o">=</span> <span class="n">y_full</span>
+    <span class="n">time_offset</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># If noise is not static, skip the initial part of the audio for segmentation only</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;static&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="n">skip_duration</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;skip_noise&quot;</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+        <span class="n">skip_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">skip_duration</span> <span class="o">*</span> <span class="n">sr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_full</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">skip_samples</span><span class="p">:</span>
+            <span class="n">y_for_segmentation</span> <span class="o">=</span> <span class="n">y_full</span><span class="p">[</span><span class="n">skip_samples</span><span class="p">:]</span>
+            <span class="n">time_offset</span> <span class="o">=</span> <span class="n">skip_duration</span>
+
+    <span class="c1"># Compute the full spectrogram from the original, complete audio file</span>
+    <span class="n">full_mel_spectrogram_db</span> <span class="o">=</span> <span class="n">compute_spectrogram</span><span class="p">(</span><span class="n">y_full</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># Perform segmentation on the (potentially truncated) audio data</span>
+    <span class="k">if</span> <span class="n">simple</span><span class="p">:</span>
+        <span class="n">segments_relative</span> <span class="o">=</span> <span class="n">segment_file_simple</span><span class="p">(</span><span class="n">y_for_segmentation</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="n">max_unit_len</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;simple_max_unit_length&quot;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># for pykanto, a spectrogram of the truncated audio is needed</span>
+        <span class="n">mel_spec_for_segmentation_db</span> <span class="o">=</span> <span class="n">compute_spectrogram</span><span class="p">(</span>
+            <span class="n">y_for_segmentation</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">config</span>
+        <span class="p">)</span>
+        <span class="n">segments_relative</span> <span class="o">=</span> <span class="n">segment_file</span><span class="p">(</span><span class="n">mel_spec_for_segmentation_db</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="n">max_unit_len</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;pykanto_max_unit_length&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Process segments if any were found</span>
+    <span class="k">if</span> <span class="n">segments_relative</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Adjust segment times to be relative to the start of the original file</span>
+        <span class="n">segments_absolute</span> <span class="o">=</span> <span class="n">segments_relative</span> <span class="o">+</span> <span class="n">time_offset</span>
+
+        <span class="c1"># Slice from the full, original spectrogram using absolute segment times</span>
+        <span class="n">min_unit_len</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">config</span><span class="p">[</span><span class="s2">&quot;simple_min_unit_length&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">simple</span>
+            <span class="k">else</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pykanto_min_unit_length&quot;</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;simple_min_unit_length&quot;</span><span class="p">])</span>
+        <span class="p">)</span>
+        <span class="n">spectrograms</span><span class="p">,</span> <span class="n">valid_indices</span><span class="p">,</span> <span class="n">dropped_counts</span> <span class="o">=</span> <span class="n">slice_and_process_spectrograms</span><span class="p">(</span>
+            <span class="n">full_mel_spectrogram_db</span><span class="p">,</span>
+            <span class="n">segments_absolute</span><span class="p">,</span>
+            <span class="n">config</span><span class="p">,</span>
+            <span class="n">max_unit_len</span><span class="p">,</span>
+            <span class="n">min_unit_len_sec</span><span class="o">=</span><span class="n">min_unit_len</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Create metadata using absolute segment times</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">valid_indices</span><span class="p">):</span>
+            <span class="n">spectrograms_to_return</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">spectrograms</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
+            <span class="n">file_unit_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;source_file&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">relative_path</span><span class="p">),</span>
+                    <span class="s2">&quot;unit_index&quot;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+                    <span class="s2">&quot;onset&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">segments_absolute</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]),</span>
+                    <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">segments_absolute</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span>
+                    <span class="s2">&quot;max_unit_length_s&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_unit_len</span><span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># No segments were found for this file (e.g., pykanto reported no units</span>
+        <span class="c1"># matching the criteria). Record this so the caller can summarize it.</span>
+        <span class="n">dropped_counts</span><span class="p">[</span><span class="s2">&quot;no_units&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># Return metadata and spectrograms for this file</span>
+    <span class="k">return</span> <span class="n">file_unit_data</span><span class="p">,</span> <span class="n">spectrograms_to_return</span><span class="p">,</span> <span class="n">dropped_counts</span>
+
+
+<span class="c1"># Process files that have already been segmented</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_process_presegmented_file_worker</span><span class="p">(</span><span class="n">processed_file</span><span class="p">,</span> <span class="n">segments_df</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate spectrograms for a single audio file from pre-defined time segments.</span>
+
+<span class="sd">    This worker function is called in parallel. It loads a WAV file, computes</span>
+<span class="sd">    a single mel spectrogram for the entire file, and then slices it into</span>
+<span class="sd">    individual unit spectrograms based on the onset and offset times provided</span>
+<span class="sd">    in the `segments_df`. Each slice is then processed to a standard target shape.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    processed_file : Path</span>
+<span class="sd">        The full path to the preprocessed WAV audio file.</span>
+<span class="sd">    segments_df : pd.DataFrame</span>
+<span class="sd">        A DataFrame containing the segmentation data for this specific audio</span>
+<span class="sd">        file, with &#39;onset&#39; and &#39;offset&#39; columns in seconds.</span>
+<span class="sd">    config : dict</span>
+<span class="sd">        The configuration dictionary containing spectrogram and processing parameters.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of (list, list, dict)</span>
+<span class="sd">        A tuple containing a list of metadata dictionaries for each unit,</span>
+<span class="sd">        a list of the corresponding processed spectrograms as NumPy arrays,</span>
+<span class="sd">        and a dictionary of dropped segment counts.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Load audio file</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">processed_file</span><span class="p">),</span> <span class="n">sr</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;sr&quot;</span><span class="p">])</span>
+
+        <span class="c1"># Create a single mel spectrogram for the entire file</span>
+        <span class="n">full_mel_spectrogram_db</span> <span class="o">=</span> <span class="n">compute_spectrogram</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+        <span class="c1"># Use the existing slice_and_process function, which handles all slicing and processing,</span>
+        <span class="c1"># defaulting to simple max unit length as a safe default for presegmented data</span>
+        <span class="n">segments_array</span> <span class="o">=</span> <span class="n">segments_df</span><span class="p">[[</span><span class="s2">&quot;onset&quot;</span><span class="p">,</span> <span class="s2">&quot;offset&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">max_unit_len</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;simple_max_unit_length&quot;</span><span class="p">]</span>
+        <span class="n">spectrograms</span><span class="p">,</span> <span class="n">valid_indices</span><span class="p">,</span> <span class="n">dropped_counts</span> <span class="o">=</span> <span class="n">slice_and_process_spectrograms</span><span class="p">(</span>
+            <span class="n">full_mel_spectrogram_db</span><span class="p">,</span>
+            <span class="n">segments_array</span><span class="p">,</span>
+            <span class="n">config</span><span class="p">,</span>
+            <span class="n">max_unit_len</span><span class="p">,</span>
+            <span class="n">min_unit_len_sec</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;simple_min_unit_length&quot;</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Create metadata from the DataFrame</span>
+        <span class="n">metadata_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Filter original DataFrame to only include valid rows</span>
+        <span class="n">segments_df_valid</span> <span class="o">=</span> <span class="n">segments_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid_indices</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">segments_df_valid</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
+            <span class="n">metadata_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;source_file&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;source_file&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;unit_index&quot;</span><span class="p">:</span> <span class="n">valid_indices</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                    <span class="s2">&quot;onset&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;onset&quot;</span><span class="p">]),</span>
+                    <span class="s2">&quot;offset&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;offset&quot;</span><span class="p">]),</span>
+                    <span class="s2">&quot;max_unit_length_s&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_unit_len</span><span class="p">),</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">metadata_list</span><span class="p">,</span> <span class="n">spectrograms</span><span class="p">,</span> <span class="n">dropped_counts</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing pre-segmented file </span><span class="si">{</span><span class="n">processed_file</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">{</span><span class="s2">&quot;max_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;min_length&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;empty&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mason Youngblood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Mason Youngblood.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+name: Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install system dependencies (libsndfile for audio)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsndfile1
+
+      - name: Install Python test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Minimal deps needed for the smoke tests (avoid tensorflow to keep CI light)
+          python -m pip install \
+            pytest \
+            numpy \
+            torch --index-url https://download.pytorch.org/whl/cpu \
+            librosa==0.9.2 \
+            pydub \
+            transformers==4.37.2 \
+            h5py \
+            pandas \
+            scikit-learn \
+            tqdm \
+            matplotlib \
+            scikit-image \
+            soundfile \
+            packaging
+          # Install the package itself without pulling the full dependency tree
+          python -m pip install -e . --no-deps
+
+      - name: Run tests
+        run: pytest -q
+

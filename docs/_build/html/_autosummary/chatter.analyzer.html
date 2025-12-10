@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>chatter.analyzer &#8212; Chatter Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=e7293a18" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/chatter.analyzer';</script>
+    <link rel="icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="chatter.config" href="chatter.config.html" />
+    <link rel="prev" title="chatter" href="chatter.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Chatter Documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Chatter Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Home
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Guide</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/installation.html">Installing <code class="docutils literal notranslate"><span class="pre">chatter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/flow_diagram.html">Flow diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/preparation.html">Preparation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Full Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/cassins_vireo.html">Cassin’s vireo</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Short Vignettes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../contents/humpback_whale.html">Humpback whales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/chimpanzee.html">Chimpanzees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/egyptian_fruit_bat.html">Egyptian fruit bats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/human.html">Humans</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="chatter.html">chatter</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">chatter.analyzer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.config.html">chatter.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.data.html">chatter.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.features.html">chatter.features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.models.html">chatter.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.trainer.html">chatter.trainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chatter.utils.html">chatter.utils</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/masonyoungblood/chatter" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/_autosummary/chatter.analyzer.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>chatter.analyzer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer"><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.config"><code class="docutils literal notranslate"><span class="pre">Analyzer.config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.n_jobs"><code class="docutils literal notranslate"><span class="pre">Analyzer.n_jobs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.__init__"><code class="docutils literal notranslate"><span class="pre">Analyzer.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.extract_species_clips"><code class="docutils literal notranslate"><span class="pre">Analyzer.extract_species_clips()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.preprocess_directory"><code class="docutils literal notranslate"><span class="pre">Analyzer.preprocess_directory()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.demo_preprocessing"><code class="docutils literal notranslate"><span class="pre">Analyzer.demo_preprocessing()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.segment_and_create_spectrograms"><code class="docutils literal notranslate"><span class="pre">Analyzer.segment_and_create_spectrograms()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.demo_segmentation"><code class="docutils literal notranslate"><span class="pre">Analyzer.demo_segmentation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.load_df"><code class="docutils literal notranslate"><span class="pre">Analyzer.load_df()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-chatter.analyzer">
+<span id="chatter-analyzer"></span><h1>chatter.analyzer<a class="headerlink" href="#module-chatter.analyzer" title="Link to this heading">#</a></h1>
+<p class="rubric">Classes</p>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#chatter.analyzer.Analyzer" title="chatter.analyzer.Analyzer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Analyzer</span></code></a>(config[, n_jobs])</p></td>
+<td><p>Main analysis class for audio preprocessing, segmentation, and spectrogram creation.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chatter.analyzer.</span></span><span class="sig-name descname"><span class="pre">Analyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer" title="Link to this definition">#</a></dt>
+<dd><p>Main analysis class for audio preprocessing, segmentation, and spectrogram creation.</p>
+<p>This class encapsulates the end-to-end pipeline for preparing audio data
+for autoencoder-based analyses. It provides methods for preprocessing
+audio files, segmenting them into syllable-like units, storing unit
+spectrograms in an HDF5 file, and managing associated metadata.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.config">
+<span class="sig-name descname"><span class="pre">config</span></span><a class="headerlink" href="#chatter.analyzer.Analyzer.config" title="Link to this definition">#</a></dt>
+<dd><p>Configuration dictionary containing all pipeline parameters, including
+audio preprocessing, spectrogram generation, and segmentation settings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.n_jobs">
+<span class="sig-name descname"><span class="pre">n_jobs</span></span><a class="headerlink" href="#chatter.analyzer.Analyzer.n_jobs" title="Link to this definition">#</a></dt>
+<dd><p>Number of parallel worker processes used for preprocessing and
+segmentation steps.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.__init__" title="Link to this definition">#</a></dt>
+<dd><p>Initialize the Analyzer with a configuration and optional parallelism.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration dictionary containing all pipeline parameters.</p></li>
+<li><p><strong>n_jobs</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of parallel jobs to run for preprocessing and segmentation.
+If set to -1, all available CPU cores are used. The default is -1.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.extract_species_clips">
+<span class="sig-name descname"><span class="pre">extract_species_clips</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">species</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer_seconds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.extract_species_clips"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.extract_species_clips" title="Link to this definition">#</a></dt>
+<dd><p>Recursively find audio files, detect a species, and export clips.</p>
+<p>This method scans an input directory for audio files, runs BirdNET to
+detect a specific species, and saves the resulting audio clips to an
+output directory that mirrors the input’s structure. The process is
+executed in parallel across multiple CPU cores.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – The root directory to search for audio files.</p></li>
+<li><p><strong>output_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – The root directory where the output clips will be saved.</p></li>
+<li><p><strong>species</strong> (<em>str</em>) – The common name of the target species to detect (e.g., “House Finch”).</p></li>
+<li><p><strong>confidence_threshold</strong> (<em>float</em><em>, </em><em>optional</em>) – The minimum confidence level (0-1) for a detection to be included.
+The default is 0.5.</p></li>
+<li><p><strong>buffer_seconds</strong> (<em>float</em><em>, </em><em>optional</em>) – The number of seconds to add to the start and end of each detected
+clip. The default is 1.0.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of files to process per batch in each parallel submission.
+If None, a default value of ‘n_jobs * 2’ is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.preprocess_directory">
+<span class="sig-name descname"><span class="pre">preprocess_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">processed_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.preprocess_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.preprocess_directory" title="Link to this definition">#</a></dt>
+<dd><p>Preprocess all audio files in a directory and its subdirectories.</p>
+<p>This method performs batch preprocessing of audio files by calling
+‘_preprocess_wav_worker’ in parallel. All supported audio file formats
+are discovered recursively under ‘input_dir’, preprocessed, and saved
+as standardized WAV files under ‘processed_dir’, preserving the directory
+structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing raw audio files in various formats.</p></li>
+<li><p><strong>processed_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory in which to save preprocessed WAV files. The directory
+structure mirrors that of ‘input_dir’.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of files to process per batch in each parallel submission.
+If None, a default value of ‘n_jobs * 2’ is used. The default is
+None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>This method writes preprocessed files to disk and prints progress
+information but does not return a value.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.demo_preprocessing">
+<span class="sig-name descname"><span class="pre">demo_preprocessing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.demo_preprocessing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.demo_preprocessing" title="Link to this definition">#</a></dt>
+<dd><p>Process a single random file (or segment) from the directory in memory and plot a comparison.</p>
+<p>This function replicates the production preprocessing pipeline logic on a
+slice of audio defined by ‘plot_clip_duration’. It prioritizes segments
+with active audio content.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing audio files to process.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.segment_and_create_spectrograms">
+<span class="sig-name descname"><span class="pre">segment_and_create_spectrograms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">processed_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h5_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">presegment_csv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.segment_and_create_spectrograms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.segment_and_create_spectrograms" title="Link to this definition">#</a></dt>
+<dd><p>Segment files and save spectrograms, optionally from a pre-segmented CSV.</p>
+<p>If <cite>presegment_csv</cite> is provided, this method bypasses internal segmentation.
+Instead, it reads the given CSV for ‘source_file’, ‘onset’, and ‘offset’
+information and generates spectrograms for those specific time slices.</p>
+<p>If <cite>presegment_csv</cite> is None, it scans a directory of preprocessed WAV
+files, segments each file into syllable-like acoustic units using
+internal methods, converts segments into spectrograms, and stores them.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>processed_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing preprocessed WAV files.</p></li>
+<li><p><strong>h5_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the output HDF5 file for spectrograms.</p></li>
+<li><p><strong>csv_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the CSV file for unit metadata.</p></li>
+<li><p><strong>simple</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, use simple amplitude-based segmentation. Default is False.</p></li>
+<li><p><strong>batch_size</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of files to process per batch in parallel. Default is ‘n_jobs’.</p></li>
+<li><p><strong>presegment_csv</strong> (<em>str</em><em> or </em><em>Path</em><em>, </em><em>optional</em>) – Path to a CSV file with pre-defined segmentations. If provided,
+internal segmentation is skipped. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame containing metadata for all units.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.demo_segmentation">
+<span class="sig-name descname"><span class="pre">demo_segmentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.demo_segmentation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.demo_segmentation" title="Link to this definition">#</a></dt>
+<dd><p>Segment a random file (or clip) in memory and visualize it.</p>
+<p>This function picks a random audio file, applies the configured segmentation
+algorithm (simple or pykanto) to a specific clip, and plots the results
+matching the visual style of ‘plot_detected_units’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_dir</strong> (<em>str</em><em> or </em><em>Path</em>) – Directory containing audio files to process.</p></li>
+<li><p><strong>simple</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, use simple amplitude-based segmentation. If False, use
+image-based segmentation (pykanto). The default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chatter.analyzer.Analyzer.load_df">
+<span class="sig-name descname"><span class="pre">load_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_csv_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chatter/analyzer.html#Analyzer.load_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chatter.analyzer.Analyzer.load_df" title="Link to this definition">#</a></dt>
+<dd><p>Load a DataFrame from a CSV file containing unit metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>metadata_csv_path</strong> (<em>str</em><em> or </em><em>Path</em>) – Path to the CSV file containing unit metadata.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loaded DataFrame if the file is found and successfully read.
+Returns None if the file is not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chatter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">chatter</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chatter.config.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">chatter.config</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer"><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.config"><code class="docutils literal notranslate"><span class="pre">Analyzer.config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.n_jobs"><code class="docutils literal notranslate"><span class="pre">Analyzer.n_jobs</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.__init__"><code class="docutils literal notranslate"><span class="pre">Analyzer.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.extract_species_clips"><code class="docutils literal notranslate"><span class="pre">Analyzer.extract_species_clips()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.preprocess_directory"><code class="docutils literal notranslate"><span class="pre">Analyzer.preprocess_directory()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.demo_preprocessing"><code class="docutils literal notranslate"><span class="pre">Analyzer.demo_preprocessing()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.segment_and_create_spectrograms"><code class="docutils literal notranslate"><span class="pre">Analyzer.segment_and_create_spectrograms()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.demo_segmentation"><code class="docutils literal notranslate"><span class="pre">Analyzer.demo_segmentation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chatter.analyzer.Analyzer.load_df"><code class="docutils literal notranslate"><span class="pre">Analyzer.load_df()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mason Youngblood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Mason Youngblood.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
