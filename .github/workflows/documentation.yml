@@ -10,18 +10,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-python@v5
-      - name: Install dependencies
+        with:
+          python-version: '3.13'
+      
+      - name: Install system dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme myst_parser
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libsndfile1
+      
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Install Sphinx and theme
+          python -m pip install sphinx sphinx-book-theme myst-parser nbsphinx sphinxcontrib-mermaid ipython
+          # Install package dependencies (minimal set to avoid NumPy 2.x issues)
+          python -m pip install "numpy<2" pandas scikit-learn pyarrow numexpr bottleneck \
+            librosa==0.9.2 noisereduce h5py tqdm matplotlib pydub \
+            scikit-image soundfile packaging transformers==4.37.2 pykanto==0.1.7
+          # Install torch CPU
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          # Install the package itself
+          python -m pip install -e . --no-deps
+      
       - name: Sphinx build
         run: |
-          sphinx-build doc _build
+          cd docs
+          make clean html
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _build/
+          publish_dir: docs/_build/html
           force_orphan: true
