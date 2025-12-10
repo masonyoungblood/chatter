@@ -27,7 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           # Install core test deps from PyPI first
-          python -m pip install pytest numpy h5py pandas scikit-learn tqdm matplotlib scikit-image soundfile packaging pydub librosa==0.9.2 transformers==4.37.2
+          python -m pip install pytest numpy h5py pandas scikit-learn tqdm matplotlib scikit-image soundfile packaging pydub librosa==0.9.2 transformers==4.37.2 noisereduce
           # Install CPU-only torch from the PyTorch index (keep it isolated from the main index)
           python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
           # Install the package itself without pulling the full dependency tree
