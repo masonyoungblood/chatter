@@ -1,5 +1,16 @@
 import os
 import sys
+import tomllib
+
+
+def _load_version(pyproject_path: str) -> str:
+    try:
+        with open(pyproject_path, "rb") as f:
+            data = tomllib.load(f)
+        return str(data["project"]["version"])
+    except Exception as e:
+        print(f"Warning: Could not read version from pyproject.toml: {e}")
+        return "0.0.0"
 
 
 def generate_readme():
@@ -7,27 +18,10 @@ def generate_readme():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(base_dir)
 
-    # Add docs dir to path to import conf.py
-    sys.path.append(base_dir)
-
-    # Try to import conf to get substitutions
-    substitutions = {}
-    try:
-        import conf
-
-        if hasattr(conf, "myst_substitutions"):
-            substitutions = conf.myst_substitutions
-            print("Loaded substitutions from conf.py")
-    except ImportError:
-        print("Warning: Could not import conf.py. Substitutions will not be applied.")
-    except Exception as e:
-        print(
-            f"Warning: Error importing conf.py: {e}. Substitutions will not be applied."
-        )
-
     index_path = os.path.join(base_dir, "index.md")
     install_path = os.path.join(base_dir, "contents", "installation.md")
     readme_path = os.path.join(project_root, "README.md")
+    pyproject_path = os.path.join(project_root, "pyproject.toml")
 
     try:
         with open(index_path, "r") as f:
@@ -46,33 +40,58 @@ def generate_readme():
     else:
         print("Warning: Split marker not found in index.md")
 
-    # Modifications requested:
-    # 1. Drop "Home" from top
-    # 2. Change chatter title to header (#)
-    # 3. Move doc link to after <br><br>
-
-    # 1. Remove "# Home"
+    # Drop "Home" header
     index_content = index_content.replace("# Home", "")
 
-    # 2. Convert title line to H1
+    # Convert title line to H1
     old_title = '**<span style="font-size:larger;">`chatter`: a Python library for applying information theory and AI/ML models to animal communication</span>**'
     new_title = "# `chatter`: a Python library for applying information theory and AI/ML models to animal communication"
     index_content = index_content.replace(old_title, new_title)
 
-    # 3. Insert doc link after <br><br>
+    # Insert doc link after <br><br> with a single trailing newline
     doc_link = "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**"
     br_marker = "<br><br>"
 
     if br_marker in index_content:
-        index_content = index_content.replace(br_marker, f"{br_marker}\n\n{doc_link}")
+        index_content = index_content.replace(br_marker, f"{br_marker}\n{doc_link}")
     else:
         # Fallback if marker not found
         print("Warning: <br><br> marker not found. Appending doc link to top.")
-        index_content = doc_link + "\n\n" + index_content
+        index_content = doc_link + "\n" + index_content
 
     # Fix relative image paths
-    # Replace _static/ with docs/_static/
     index_content = index_content.replace("(_static/", "(docs/_static/")
+
+    # Build substitutions locally (avoid heavy imports)
+    version = _load_version(pyproject_path)
+    # Prefer the declared requires-python for the badge to avoid env/version drift.
+    try:
+        with open(pyproject_path, "rb") as f:
+            data = tomllib.load(f)
+        py_req = str(data["project"].get("requires-python", "")).strip()
+    except Exception:
+        py_req = ""
+
+    if py_req.startswith(">="):
+        py_badge_val = py_req.replace(">=", "").strip() + "+"
+    elif py_req:
+        py_badge_val = py_req
+    else:
+        py_badge_val = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
+
+    py_ver = py_badge_val
+    substitutions = {
+        "python_badge": f"![python](https://img.shields.io/badge/_python-{py_ver}-440154)",
+        "version_badge": f"![version](https://img.shields.io/badge/_version-{version}-21918c)",
+        "doi_badge": "![doi](https://img.shields.io/badge/_doi-TBD-fde725)",
+        "python_version": py_ver,
+        "chatter_version": version,
+    }
+
+    # Make badges inline if they appear stacked
+    stacked = "{{ python_badge }}\n{{ version_badge }}\n{{ doi_badge }}"
+    inline = "{{ python_badge }} {{ version_badge }} {{ doi_badge }}"
+    index_content = index_content.replace(stacked, inline)
 
     # Apply substitutions
     for key, value in substitutions.items():
@@ -82,9 +101,7 @@ def generate_readme():
         if placeholder in install_content:
             install_content = install_content.replace(placeholder, str(value))
 
-    # Clean up multiple newlines that might result from removing "# Home"
     index_content = index_content.strip()
-
     final_content = index_content + "\n\n" + install_content
 
     try:

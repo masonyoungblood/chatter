@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -414,11 +414,9 @@ document.write(`
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import packages</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import packages</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">chatter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -427,46 +425,53 @@ document.write(`
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#set config parameters that depart from defaults</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set config parameters that depart from defaults</span>
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">#spectrogram parameters</span>
-    <span class="s1">&#39;fmin&#39;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
-    <span class="s1">&#39;fmax&#39;</span><span class="p">:</span> <span class="mi">7500</span><span class="p">,</span>
-
-    <span class="c1">#preprocessing parameters</span>
-    <span class="s1">&#39;use_biodenoising&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;use_noisereduce&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;high_pass&#39;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
-    <span class="s1">&#39;low_pass&#39;</span><span class="p">:</span> <span class="mi">7500</span><span class="p">,</span>
-    <span class="s1">&#39;static&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;threshold&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-
-    <span class="c1">#simple segmentation parameters</span>
-    <span class="s1">&#39;simple_noise_floor&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span>
-    <span class="s1">&#39;simple_silence_threshold_db&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span>
-    <span class="s1">&#39;simple_min_silence_length&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
-    <span class="s1">&#39;simple_max_unit_length&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
-    <span class="s1">&#39;simple_min_unit_length&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
-
-    <span class="c1">#other parameters</span>
-    <span class="s1">&#39;plot_clip_duration&#39;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="c1"># spectrogram parameters</span>
+    <span class="s2">&quot;fmin&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+    <span class="s2">&quot;fmax&quot;</span><span class="p">:</span> <span class="mi">7500</span><span class="p">,</span>
+    <span class="c1"># preprocessing parameters</span>
+    <span class="s2">&quot;use_biodenoising&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;use_noisereduce&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;high_pass&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+    <span class="s2">&quot;low_pass&quot;</span><span class="p">:</span> <span class="mi">7500</span><span class="p">,</span>
+    <span class="s2">&quot;static&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="c1"># simple segmentation parameters</span>
+    <span class="s2">&quot;simple_noise_floor&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">60</span><span class="p">,</span>
+    <span class="s2">&quot;simple_silence_threshold_db&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span>
+    <span class="s2">&quot;simple_min_silence_length&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="s2">&quot;simple_max_unit_length&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="s2">&quot;simple_min_unit_length&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="c1"># other parameters</span>
+    <span class="s2">&quot;plot_clip_duration&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">make_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-<span class="c1">#initialize the analyzer with the configuration</span>
-<span class="c1">#using only 8 cores to avoid memory crash during segmentation</span>
-<span class="n">analyzer</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+<span class="c1"># initialize the analyzer with the configuration</span>
+<span class="c1"># using only 8 cores to avoid memory crash during segmentation</span>
+<span class="n">analyzer</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-<span class="c1">#set paths</span>
+<span class="c1"># set paths</span>
 <span class="n">raw_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/recordings/raw&quot;</span><span class="p">)</span>
-<span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/recordings/clips&quot;</span><span class="p">)</span>
-<span class="n">processed_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/recordings/processed&quot;</span><span class="p">)</span>
+<span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/recordings/clips&quot;</span>
+<span class="p">)</span>
+<span class="n">processed_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/recordings/processed&quot;</span>
+<span class="p">)</span>
 <span class="n">h5_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/spectrograms.h5&quot;</span><span class="p">)</span>
-<span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/spectrograms.csv&quot;</span><span class="p">)</span>
+<span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/spectrograms.csv&quot;</span>
+<span class="p">)</span>
 <span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/model&quot;</span><span class="p">)</span>
-<span class="n">output_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/output.csv&quot;</span><span class="p">)</span>
-<span class="n">output_html_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/cassins_vireo_embedding.html&quot;</span><span class="p">)</span>
+<span class="n">output_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/output.csv&quot;</span>
+<span class="p">)</span>
+<span class="n">output_html_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/cassins_vireo/cassins_vireo_embedding.html&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -509,8 +514,13 @@ Using device: mps
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#identify and export clips with cassin&#39;s vireo</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">extract_species_clips</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">raw_dir</span><span class="p">,</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">input_dir</span><span class="p">,</span> <span class="n">species</span> <span class="o">=</span> <span class="s2">&quot;Cassin&#39;s Vireo&quot;</span><span class="p">,</span> <span class="n">confidence_threshold</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># identify and export clips with cassin&#39;s vireo</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">extract_species_clips</span><span class="p">(</span>
+    <span class="n">input_dir</span><span class="o">=</span><span class="n">raw_dir</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="n">input_dir</span><span class="p">,</span>
+    <span class="n">species</span><span class="o">=</span><span class="s2">&quot;Cassin&#39;s Vireo&quot;</span><span class="p">,</span>
+    <span class="n">confidence_threshold</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -552,7 +562,7 @@ Detecting &#39;Cassin&#39;s Vireo&#39;: 100%|██████████| 221
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#demo the preprocessing pipeline</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># demo the preprocessing pipeline</span>
 <span class="n">analyzer</span><span class="o">.</span><span class="n">demo_preprocessing</span><span class="p">(</span><span class="n">input_dir</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -578,8 +588,8 @@ Detecting &#39;Cassin&#39;s Vireo&#39;: 100%|██████████| 221
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preprocess recordings</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">preprocess_directory</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">input_dir</span><span class="p">,</span> <span class="n">processed_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preprocess recordings</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">preprocess_directory</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">processed_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -641,11 +651,11 @@ Preprocessing audio: 100%|██████████| 714/714 [00:51&lt;00:0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preview the segmentation pipeline</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preview the segmentation pipeline</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -718,8 +728,10 @@ Preprocessing audio: 100%|██████████| 714/714 [00:51&lt;00:0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#segment units and save spectrograms</span>
-<span class="n">unit_df</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">segment_and_create_spectrograms</span><span class="p">(</span><span class="n">processed_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">csv_path</span> <span class="o">=</span> <span class="n">csv_path</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># segment units and save spectrograms</span>
+<span class="n">unit_df</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">segment_and_create_spectrograms</span><span class="p">(</span>
+    <span class="n">processed_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span> <span class="n">csv_path</span><span class="o">=</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -789,8 +801,8 @@ Unit metadata saved to /Volumes/Expansion/data/chatter/examples/cassins_vireo/sp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#train ae</span>
-<span class="n">model</span><span class="o">.</span><span class="n">train_ae</span><span class="p">(</span><span class="n">unit_df</span> <span class="o">=</span> <span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">model_dir</span> <span class="o">=</span> <span class="n">model_dir</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train ae</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train_ae</span><span class="p">(</span><span class="n">unit_df</span><span class="o">=</span><span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span> <span class="n">model_dir</span><span class="o">=</span><span class="n">model_dir</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -826,7 +838,7 @@ Loss history saved to /Volumes/Expansion/data/chatter/examples/cassins_vireo/mod
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load trained vae</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load trained vae</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Trainer</span><span class="o">.</span><span class="n">from_trained</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">model_dir</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -847,8 +859,8 @@ Successfully loaded pre-trained model from /Volumes/Expansion/data/chatter/examp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#assess the quality of reconstruction</span>
-<span class="n">model</span><span class="o">.</span><span class="n">plot_reconstructions</span><span class="p">(</span><span class="n">unit_df</span> <span class="o">=</span> <span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assess the quality of reconstruction</span>
+<span class="n">model</span><span class="o">.</span><span class="n">plot_reconstructions</span><span class="p">(</span><span class="n">unit_df</span><span class="o">=</span><span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -864,8 +876,13 @@ Successfully loaded pre-trained model from /Volumes/Expansion/data/chatter/examp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#export the latent features</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extract_and_save_features</span><span class="p">(</span><span class="n">unit_df</span> <span class="o">=</span> <span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">model_dir</span> <span class="o">=</span> <span class="n">model_dir</span><span class="p">,</span> <span class="n">output_csv_path</span> <span class="o">=</span> <span class="n">output_csv_path</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># export the latent features</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extract_and_save_features</span><span class="p">(</span>
+    <span class="n">unit_df</span><span class="o">=</span><span class="n">unit_df</span><span class="p">,</span>
+    <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span>
+    <span class="n">model_dir</span><span class="o">=</span><span class="n">model_dir</span><span class="p">,</span>
+    <span class="n">output_csv_path</span><span class="o">=</span><span class="n">output_csv_path</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -942,7 +959,7 @@ Extracting features: 100%|██████████| 43/43 [00:06&lt;00:00,
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load in latent features</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load in latent features</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">FeatureProcessor</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">load_df</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">),</span> <span class="n">config</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -961,7 +978,7 @@ Attempting to load /Volumes/Expansion/data/chatter/examples/cassins_vireo/output
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#run pacmap to get two-dimensional embedding for visualization</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run pacmap to get two-dimensional embedding for visualization</span>
 <span class="n">output</span><span class="o">.</span><span class="n">run_pacmap</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -989,8 +1006,17 @@ Attempting to load /Volumes/Expansion/data/chatter/examples/cassins_vireo/output
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create static plot</span>
-<span class="n">output</span><span class="o">.</span><span class="n">static_embedding_plot</span><span class="p">(</span><span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">11</span><span class="p">,</span> <span class="n">focal_quantile</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">margin</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">zoom_padding</span> <span class="o">=</span> <span class="mf">0.42</span><span class="p">,</span> <span class="n">num_neighbors</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create static plot</span>
+<span class="n">output</span><span class="o">.</span><span class="n">static_embedding_plot</span><span class="p">(</span>
+    <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span>
+    <span class="n">focal_quantile</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">point_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">point_alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">margin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">zoom_padding</span><span class="o">=</span><span class="mf">0.42</span><span class="p">,</span>
+    <span class="n">num_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1028,8 +1054,10 @@ Attempting to load /Volumes/Expansion/data/chatter/examples/cassins_vireo/output
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create interactive plot</span>
-<span class="n">output</span><span class="o">.</span><span class="n">interactive_embedding_plot</span><span class="p">(</span><span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">output_html_path</span> <span class="o">=</span> <span class="n">output_html_path</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create interactive plot</span>
+<span class="n">output</span><span class="o">.</span><span class="n">interactive_embedding_plot</span><span class="p">(</span>
+    <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span> <span class="n">output_html_path</span><span class="o">=</span><span class="n">output_html_path</span><span class="p">,</span> <span class="n">point_alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1072,7 +1100,7 @@ Thumbnails: 100%|██████████| 2692/2692 [00:02&lt;00:00, 1332
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#assign sequence ids based on the 1-second cutoff</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assign sequence ids based on the 1-second cutoff</span>
 <span class="n">output</span><span class="o">.</span><span class="n">assign_sequence_ids</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1100,8 +1128,8 @@ Thumbnails: 100%|██████████| 2692/2692 [00:02&lt;00:00, 1332
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#calculate standard acoustic measures used in birdsong research</span>
-<span class="n">output</span><span class="o">.</span><span class="n">compute_frequency_statistics</span><span class="p">(</span><span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate standard acoustic measures used in birdsong research</span>
+<span class="n">output</span><span class="o">.</span><span class="n">compute_frequency_statistics</span><span class="p">(</span><span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1151,7 +1179,7 @@ Analyzing spectrograms: 100%|██████████| 2692/2692 [00:01&lt
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute density probability of each unit</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute density probability of each unit</span>
 <span class="n">output</span><span class="o">.</span><span class="n">compute_density_probability</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1206,7 +1234,7 @@ best average log likelihood: -41.249
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute cosine distances between subsequent units in sequences</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute cosine distances between subsequent units in sequences</span>
 <span class="n">output</span><span class="o">.</span><span class="n">compute_cosine_distances</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1234,7 +1262,7 @@ best average log likelihood: -41.249
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute the likelihood of each transition between units</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute the likelihood of each transition between units</span>
 <span class="n">output</span><span class="o">.</span><span class="n">compute_sse_resid</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1262,7 +1290,7 @@ best average log likelihood: -41.249
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preview the final data frame</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preview the final data frame</span>
 <span class="n">output</span><span class="o">.</span><span class="n">df</span>
 </pre></div>
 </div>
@@ -1587,8 +1615,8 @@ best average log likelihood: -41.249
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#save the final data frame with all of these measures to a CSV file</span>
-<span class="n">output</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save the final data frame with all of these measures to a CSV file</span>
+<span class="n">output</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -38,7 +38,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -388,11 +388,9 @@ document.write(`
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import packages</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import packages</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">chatter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -400,47 +398,54 @@ document.write(`
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define config parameters</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define config parameters</span>
 <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="c1">#spectrogram parameters</span>
-    <span class="s1">&#39;sr&#39;</span><span class="p">:</span> <span class="mi">250000</span><span class="p">,</span>
-    <span class="s1">&#39;n_mels&#39;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
-    <span class="s1">&#39;fmin&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-    <span class="s1">&#39;fmax&#39;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span>
-
-    <span class="c1">#preprocessing parameters</span>
-    <span class="s1">&#39;high_pass&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
-    <span class="s1">&#39;low_pass&#39;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span>
-    <span class="s1">&#39;threshold&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
-
-    <span class="c1">#pykanto segmentation parameters</span>
-    <span class="s1">&#39;pykanto_noise_floor&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_top_dB&#39;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_max_dB&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_dB_delta&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_silence_threshold&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_min_silence_length&#39;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_max_unit_length&#39;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_min_unit_length&#39;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
-    <span class="s1">&#39;pykanto_gauss_sigma&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-
-    <span class="c1">#other parameters</span>
-    <span class="s1">&#39;plot_clip_duration&#39;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="c1"># spectrogram parameters</span>
+    <span class="s2">&quot;sr&quot;</span><span class="p">:</span> <span class="mi">250000</span><span class="p">,</span>
+    <span class="s2">&quot;n_mels&quot;</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+    <span class="s2">&quot;fmin&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;fmax&quot;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span>
+    <span class="c1"># preprocessing parameters</span>
+    <span class="s2">&quot;high_pass&quot;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;low_pass&quot;</span><span class="p">:</span> <span class="mi">40000</span><span class="p">,</span>
+    <span class="s2">&quot;threshold&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+    <span class="c1"># pykanto segmentation parameters</span>
+    <span class="s2">&quot;pykanto_noise_floor&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_top_dB&quot;</span><span class="p">:</span> <span class="mi">65</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_max_dB&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_dB_delta&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_silence_threshold&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_min_silence_length&quot;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_max_unit_length&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_min_unit_length&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
+    <span class="s2">&quot;pykanto_gauss_sigma&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="c1"># other parameters</span>
+    <span class="s2">&quot;plot_clip_duration&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">config</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">make_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-<span class="c1">#initialize the analyzer with the configuration</span>
-<span class="c1">#using only 8 cores to avoid memory crash during segmentation</span>
-<span class="n">analyzer</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="mi">8</span><span class="p">)</span>
+<span class="c1"># initialize the analyzer with the configuration</span>
+<span class="c1"># using only 8 cores to avoid memory crash during segmentation</span>
+<span class="n">analyzer</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Analyzer</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 
-<span class="c1">#set paths</span>
-<span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/recordings/raw&quot;</span><span class="p">)</span>
-<span class="n">processed_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/recordings/processed&quot;</span><span class="p">)</span>
-<span class="n">h5_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/spectrograms.h5&quot;</span><span class="p">)</span>
-<span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/spectrograms.csv&quot;</span><span class="p">)</span>
+<span class="c1"># set paths</span>
+<span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/recordings/raw&quot;</span>
+<span class="p">)</span>
+<span class="n">processed_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/recordings/processed&quot;</span>
+<span class="p">)</span>
+<span class="n">h5_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/spectrograms.h5&quot;</span>
+<span class="p">)</span>
+<span class="n">csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/spectrograms.csv&quot;</span>
+<span class="p">)</span>
 <span class="n">model_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/model&quot;</span><span class="p">)</span>
-<span class="n">output_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/output.csv&quot;</span><span class="p">)</span>
+<span class="n">output_csv_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span>
+    <span class="s2">&quot;/Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/output.csv&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -461,7 +466,7 @@ Using device: mps
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#demo the preprocessing pipeline</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># demo the preprocessing pipeline</span>
 <span class="n">analyzer</span><span class="o">.</span><span class="n">demo_preprocessing</span><span class="p">(</span><span class="n">input_dir</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -486,8 +491,8 @@ Using device: mps
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preprocess recordings</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">preprocess_directory</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">input_dir</span><span class="p">,</span> <span class="n">processed_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preprocess recordings</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">preprocess_directory</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">processed_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -531,11 +536,11 @@ Preprocessing audio: 100%|██████████| 10000/10000 [07:28&lt;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preview the segmentation pipeline</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># preview the segmentation pipeline</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">demo_segmentation</span><span class="p">(</span><span class="n">input_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,8 +612,10 @@ Preprocessing audio: 100%|██████████| 10000/10000 [07:28&lt;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#segment units and save spectrograms</span>
-<span class="n">unit_df</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">segment_and_create_spectrograms</span><span class="p">(</span><span class="n">processed_dir</span> <span class="o">=</span> <span class="n">processed_dir</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">csv_path</span> <span class="o">=</span> <span class="n">csv_path</span><span class="p">,</span> <span class="n">simple</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># segment units and save spectrograms</span>
+<span class="n">unit_df</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">segment_and_create_spectrograms</span><span class="p">(</span>
+    <span class="n">processed_dir</span><span class="o">=</span><span class="n">processed_dir</span><span class="p">,</span> <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span> <span class="n">csv_path</span><span class="o">=</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">simple</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -649,7 +656,7 @@ Unit metadata saved to /Volumes/Expansion/data/chatter/examples/egyptian_fruit_b
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load segmented units</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load segmented units</span>
 <span class="n">unit_df</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">load_df</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -667,8 +674,8 @@ Attempting to load /Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/s
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#train ae</span>
-<span class="n">model</span><span class="o">.</span><span class="n">train_ae</span><span class="p">(</span><span class="n">unit_df</span> <span class="o">=</span> <span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">model_dir</span> <span class="o">=</span> <span class="n">model_dir</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train ae</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train_ae</span><span class="p">(</span><span class="n">unit_df</span><span class="o">=</span><span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span> <span class="n">model_dir</span><span class="o">=</span><span class="n">model_dir</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -703,7 +710,7 @@ Loss history saved to /Volumes/Expansion/data/chatter/examples/egyptian_fruit_ba
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load trained vae</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load trained vae</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">Trainer</span><span class="o">.</span><span class="n">from_trained</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">model_dir</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -723,8 +730,8 @@ Successfully loaded pre-trained model from /Volumes/Expansion/data/chatter/examp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#assess the quality of reconstruction</span>
-<span class="n">model</span><span class="o">.</span><span class="n">plot_reconstructions</span><span class="p">(</span><span class="n">unit_df</span> <span class="o">=</span> <span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assess the quality of reconstruction</span>
+<span class="n">model</span><span class="o">.</span><span class="n">plot_reconstructions</span><span class="p">(</span><span class="n">unit_df</span><span class="o">=</span><span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -739,8 +746,13 @@ Successfully loaded pre-trained model from /Volumes/Expansion/data/chatter/examp
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#export the latent features</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extract_and_save_features</span><span class="p">(</span><span class="n">unit_df</span> <span class="o">=</span> <span class="n">unit_df</span><span class="p">,</span> <span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">model_dir</span> <span class="o">=</span> <span class="n">model_dir</span><span class="p">,</span> <span class="n">output_csv_path</span> <span class="o">=</span> <span class="n">output_csv_path</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># export the latent features</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">extract_and_save_features</span><span class="p">(</span>
+    <span class="n">unit_df</span><span class="o">=</span><span class="n">unit_df</span><span class="p">,</span>
+    <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span>
+    <span class="n">model_dir</span><span class="o">=</span><span class="n">model_dir</span><span class="p">,</span>
+    <span class="n">output_csv_path</span><span class="o">=</span><span class="n">output_csv_path</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -778,7 +790,7 @@ Extracting features: 100%|██████████| 734/734 [00:11&lt;00:0
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load in latent features</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load in latent features</span>
 <span class="n">output</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">FeatureProcessor</span><span class="p">(</span><span class="n">analyzer</span><span class="o">.</span><span class="n">load_df</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">),</span> <span class="n">config</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -796,9 +808,9 @@ Attempting to load /Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/o
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#process output and save</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># process output and save</span>
 <span class="n">output</span><span class="o">.</span><span class="n">run_pacmap</span><span class="p">()</span>
-<span class="n">output</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">output</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -815,8 +827,17 @@ Attempting to load /Volumes/Expansion/data/chatter/examples/egyptian_fruit_bat/o
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create interactive or static plot</span>
-<span class="n">output</span><span class="o">.</span><span class="n">static_embedding_plot</span><span class="p">(</span><span class="n">h5_path</span> <span class="o">=</span> <span class="n">h5_path</span><span class="p">,</span> <span class="n">seed</span> <span class="o">=</span> <span class="mi">111</span><span class="p">,</span> <span class="n">focal_quantile</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">margin</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">zoom_padding</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">num_neighbors</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create interactive or static plot</span>
+<span class="n">output</span><span class="o">.</span><span class="n">static_embedding_plot</span><span class="p">(</span>
+    <span class="n">h5_path</span><span class="o">=</span><span class="n">h5_path</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">111</span><span class="p">,</span>
+    <span class="n">focal_quantile</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">point_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">point_alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">margin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">zoom_padding</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">num_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>

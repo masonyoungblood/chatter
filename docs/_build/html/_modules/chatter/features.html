@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=5db94ae7"></script>
+    <script src="../../_static/documentation_options.js?v=a1637f0b"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -678,42 +678,39 @@ document.write(`
   <h1>Source code for chatter.features</h1><div class="highlight"><pre>
 <span></span><span class="c1"># Silence annoying warning</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="ne">UserWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*pkg_resources is deprecated as an API.*&quot;</span><span class="p">)</span>
+
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+    <span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;.*pkg_resources is deprecated as an API.*&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># Import necessary libraries</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleNamespace</span>  <span class="c1"># noqa: E402</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.backends.backend_agg</span><span class="w"> </span><span class="kn">import</span> <span class="n">FigureCanvasAgg</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.figure</span><span class="w"> </span><span class="kn">import</span> <span class="n">Figure</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.gridspec</span><span class="w"> </span><span class="kn">import</span> <span class="n">GridSpec</span><span class="p">,</span> <span class="n">GridSpecFromSubplotSpec</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_filter</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">cKDTree</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">Birch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">NearestNeighbors</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">gaussian_filter</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.spatial</span><span class="w"> </span><span class="kn">import</span> <span class="n">cKDTree</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">Birch</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">NearestNeighbors</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>  <span class="c1"># noqa: E402</span>
 
 <span class="c1"># Optional imports with fallbacks</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">pacmap</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pacmap</span>  <span class="c1"># noqa: E402</span>
 
     <span class="n">PACMAP_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">PACMAP_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="k">class</span><span class="w"> </span><span class="nc">pacmap</span><span class="p">:</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">pacmap</span><span class="p">:</span>  <span class="c1"># noqa: E402</span>
         <span class="k">class</span><span class="w"> </span><span class="nc">PaCMAP</span><span class="p">:</span>
             <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
@@ -722,13 +719,13 @@ document.write(`
 
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">denmarf</span><span class="w"> </span><span class="kn">import</span> <span class="n">DensityEstimate</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">denmarf</span><span class="w"> </span><span class="kn">import</span> <span class="n">DensityEstimate</span>  <span class="c1"># noqa: E402</span>
 
     <span class="n">DENMARF_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="n">DENMARF_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="k">class</span><span class="w"> </span><span class="nc">DensityEstimate</span><span class="p">:</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">DensityEstimate</span><span class="p">:</span>  <span class="c1"># noqa: E402</span>
         <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
                 <span class="s2">&quot;denmarf not available. Install it to use density estimation features.&quot;</span>
@@ -737,20 +734,20 @@ document.write(`
 
 <span class="c1"># Import DTW with fallback for compatibility</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">dtw</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtw</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">dtw</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtw</span>  <span class="c1"># noqa: E402</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">dtw_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtw</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">dtw_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">dtw</span>  <span class="c1"># noqa: E402</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
         <span class="c1"># Fallback implementation if neither package is available</span>
-        <span class="k">def</span><span class="w"> </span><span class="nf">dtw</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">dtw</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c1"># noqa: E402</span>
             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
                 <span class="s2">&quot;DTW package not available. Install &#39;dtw-python&#39; or &#39;dtw&#39; package.&quot;</span>
             <span class="p">)</span>
 
 
 <span class="c1"># Import local modules</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_plot_style</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_plot_style</span>  <span class="c1"># noqa: E402</span>
 
 
 <span class="c1"># Constants for frequency statistics and visualization</span>
@@ -895,7 +892,7 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- BIRCH clustering complete ---&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-    
+
     <span class="c1"># Compute density probability</span>
 <div class="viewcode-block" id="FeatureProcessor.compute_density_probability">
 <a class="viewcode-back" href="../../_autosummary/chatter.features.html#chatter.FeatureProcessor.compute_density_probability">[docs]</a>
@@ -964,10 +961,10 @@ document.write(`
             <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;mps&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;cpu&quot;</span>
-        
+
         <span class="c1"># Initialize density estimator</span>
         <span class="n">de</span> <span class="o">=</span> <span class="n">DensityEstimate</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-        
+
         <span class="c1"># Capture fit output to avoid cluttering console if verbose</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    Fitting MAF model on </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="si">}</span><span class="s2"> samples (device: </span><span class="si">{</span><span class="n">device</span><span class="si">}</span><span class="s2">)...&quot;</span><span class="p">)</span>
         <span class="n">de</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
@@ -1285,7 +1282,7 @@ document.write(`
         <span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-    
+
     <span class="c1"># Compute DTW distance</span>
 <div class="viewcode-block" id="FeatureProcessor.compute_dtw_distance">
 <a class="viewcode-back" href="../../_autosummary/chatter.features.html#chatter.FeatureProcessor.compute_dtw_distance">[docs]</a>
@@ -1630,7 +1627,7 @@ document.write(`
         <span class="n">sse_values</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Calculating SSE for BIRCH clustering to find elbow point ---&quot;</span><span class="p">)</span>
-        
+
         <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">k_range</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Testing k values&quot;</span><span class="p">):</span>
             <span class="c1"># Initialize and fit the BIRCH model</span>
             <span class="n">birch_model</span> <span class="o">=</span> <span class="n">Birch</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
@@ -2101,7 +2098,7 @@ document.write(`
         <span class="c1"># Sample one point from the fringes of each quadrant</span>
         <span class="n">focal_indices</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">quadrant_order</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;top_left&quot;</span><span class="p">,</span> <span class="s2">&quot;top_right&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom_left&quot;</span><span class="p">,</span> <span class="s2">&quot;bottom_right&quot;</span><span class="p">]</span>
-        
+
         <span class="k">for</span> <span class="n">q_name</span> <span class="ow">in</span> <span class="n">quadrant_order</span><span class="p">:</span>
             <span class="n">quadrant_df</span> <span class="o">=</span> <span class="n">quadrants</span><span class="p">[</span><span class="n">q_name</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">quadrant_df</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
@@ -2149,7 +2146,7 @@ document.write(`
         <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;pacmap_y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;pacmap_y&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
         <span class="n">x_range</span> <span class="o">=</span> <span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span>
         <span class="n">y_range</span> <span class="o">=</span> <span class="n">y_max</span> <span class="o">-</span> <span class="n">y_min</span>
-        
+
         <span class="n">plot_xmin</span> <span class="o">=</span> <span class="n">x_min</span> <span class="o">-</span> <span class="n">x_range</span> <span class="o">*</span> <span class="n">zoom_padding</span>
         <span class="n">plot_xmax</span> <span class="o">=</span> <span class="n">x_max</span> <span class="o">+</span> <span class="n">x_range</span> <span class="o">*</span> <span class="n">zoom_padding</span>
         <span class="n">plot_ymin</span> <span class="o">=</span> <span class="n">y_min</span> <span class="o">-</span> <span class="n">y_range</span> <span class="o">*</span> <span class="n">zoom_padding</span>
@@ -2203,12 +2200,12 @@ document.write(`
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Calculating callout positions and adding spectrograms ---&quot;</span><span class="p">)</span>
             <span class="n">plot_width</span> <span class="o">=</span> <span class="n">plot_xmax</span> <span class="o">-</span> <span class="n">plot_xmin</span>
             <span class="n">plot_height</span> <span class="o">=</span> <span class="n">plot_ymax</span> <span class="o">-</span> <span class="n">plot_ymin</span>
-            
+
             <span class="c1"># Calculate correction factor to ensure images maintain aspect ratio</span>
             <span class="c1"># Given the unequal data scales and figure dimensions</span>
             <span class="n">fig_w</span><span class="p">,</span> <span class="n">fig_h</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">get_size_inches</span><span class="p">()</span>
             <span class="n">correction_factor</span> <span class="o">=</span> <span class="p">(</span><span class="n">plot_height</span> <span class="o">/</span> <span class="n">plot_width</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">fig_w</span> <span class="o">/</span> <span class="n">fig_h</span><span class="p">)</span>
-            
+
             <span class="c1"># Get spectrogram aspect ratio from a sample</span>
             <span class="n">sample_spec</span> <span class="o">=</span> <span class="n">_load_spec</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">focal_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;h5_index&quot;</span><span class="p">]))</span>
             <span class="n">spec_height</span><span class="p">,</span> <span class="n">spec_width</span> <span class="o">=</span> <span class="n">sample_spec</span><span class="o">.</span><span class="n">shape</span>
@@ -2216,28 +2213,28 @@ document.write(`
 
             <span class="c1"># Define image sizes by constraining the total width of the neighbor group</span>
             <span class="n">max_group_width</span> <span class="o">=</span> <span class="n">plot_width</span> <span class="o">*</span> <span class="mf">0.4</span>  <span class="c1"># Constrain group to 40% of plot width</span>
-            
+
             <span class="n">neighbor_img_width</span> <span class="o">=</span> <span class="n">max_group_width</span> <span class="o">/</span> <span class="n">num_neighbors</span>
             <span class="n">neighbor_img_height</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">neighbor_img_width</span> <span class="o">*</span> <span class="n">correction_factor</span>
             <span class="p">)</span> <span class="o">/</span> <span class="n">aspect_ratio</span>
-            
+
             <span class="c1"># Make focal images slightly larger than neighbors</span>
             <span class="n">focal_img_width</span> <span class="o">=</span> <span class="n">neighbor_img_width</span> <span class="o">*</span> <span class="mf">1.3</span>
             <span class="n">focal_img_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">focal_img_width</span> <span class="o">*</span> <span class="n">correction_factor</span><span class="p">)</span> <span class="o">/</span> <span class="n">aspect_ratio</span>
-            
+
             <span class="c1"># Calculate symmetrical positions based on the full plot dimensions</span>
             <span class="n">margin_x</span> <span class="o">=</span> <span class="n">plot_width</span> <span class="o">*</span> <span class="n">margin</span>
             <span class="n">margin_y</span> <span class="o">=</span> <span class="n">plot_height</span> <span class="o">*</span> <span class="n">margin</span>
-            
+
             <span class="c1"># Calculate base x positions for the focal spectrograms</span>
             <span class="n">left_focal_x</span> <span class="o">=</span> <span class="n">plot_xmin</span> <span class="o">+</span> <span class="n">margin_x</span> <span class="o">+</span> <span class="p">(</span><span class="n">max_group_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
             <span class="n">right_focal_x</span> <span class="o">=</span> <span class="n">plot_xmax</span> <span class="o">-</span> <span class="n">margin_x</span> <span class="o">-</span> <span class="p">(</span><span class="n">max_group_width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-            
+
             <span class="c1"># Calculate base y positions for the neighbor groups</span>
             <span class="n">top_neighbor_y</span> <span class="o">=</span> <span class="n">plot_ymax</span> <span class="o">-</span> <span class="n">margin_y</span> <span class="o">-</span> <span class="p">(</span><span class="n">neighbor_img_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
             <span class="n">bottom_neighbor_y</span> <span class="o">=</span> <span class="n">plot_ymin</span> <span class="o">+</span> <span class="n">margin_y</span> <span class="o">+</span> <span class="p">(</span><span class="n">neighbor_img_height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-            
+
             <span class="c1"># Vertical offset between focal and neighbor centers</span>
             <span class="n">vertical_padding</span> <span class="o">=</span> <span class="n">plot_height</span> <span class="o">*</span> <span class="mf">0.02</span>
             <span class="n">neighbor_y_offset</span> <span class="o">=</span> <span class="p">(</span>
@@ -2289,7 +2286,7 @@ document.write(`
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">focal_idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">focal_indices</span><span class="p">):</span>
                 <span class="n">focal_x</span><span class="p">,</span> <span class="n">focal_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">focal_idx</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pacmap_x&quot;</span><span class="p">,</span> <span class="s2">&quot;pacmap_y&quot;</span><span class="p">]]</span>
                 <span class="n">callout_pos</span> <span class="o">=</span> <span class="n">callout_positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                
+
                 <span class="c1"># Add dashed line with a low zorder to be in the back</span>
                 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
                     <span class="p">[</span><span class="n">focal_x</span><span class="p">,</span> <span class="n">callout_pos</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]],</span>
@@ -2330,7 +2327,7 @@ document.write(`
                 <span class="n">current_focal_neighbor_indices</span> <span class="o">=</span> <span class="n">neighbor_indices</span><span class="p">[</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">focal_idx</span><span class="p">)</span>
                 <span class="p">]</span>
-                
+
                 <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">neighbor_idx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">current_focal_neighbor_indices</span><span class="p">):</span>
                     <span class="n">neighbor_x</span> <span class="o">=</span> <span class="n">neighbor_start_x</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">neighbor_img_width</span>
                     <span class="n">neighbor_h5_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">neighbor_idx</span><span class="p">,</span> <span class="s2">&quot;h5_index&quot;</span><span class="p">])</span>
