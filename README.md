@@ -1,11 +1,11 @@
 <div align="center">
-<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/main/sphinx/_static/logo.png" alt="chatter logo" width="400">
+<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/refs/heads/main/docs/_static/logo.png" alt="chatter logo" width="300">
 
 [Mason Youngblood](https://masonyoungblood.com/)
 
 ![PyPI - Version](https://img.shields.io/pypi/v/chatter-pkg?color=440154) ![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmasonyoungblood%2Fchatter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&color=414487) ![Repo Size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E) ![License](https://img.shields.io/badge/license-MIT-22A884) ![Tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=FDE725)
 
-**[Full Documentation](https://masonyoungblood.github.io/chatter/sphinx/_build/html/index.html)**
+**[Full Documentation](https://masonyoungblood.github.io/chatter)**
 </div>
 
 
@@ -30,7 +30,7 @@ Historically, analyses of sequential structure in animal communication have invo
 
 Additionally, `chatter` makes it easy to explore the latent space of a species' vocalizations, either statically or with an interactive plot like the one below (of syllables in Cassin's vireo song).
 
-![embeddings](https://raw.githubusercontent.com/masonyoungblood/chatter/main/sphinx/_static/cassins_vireo_embedding.gif)
+![embeddings](https://github.com/masonyoungblood/chatter/blob/main/docs/_static/cassins_vireo_embedding.gif?raw=true)
 
 This project is heavily inspired by the work of folks like Nilo Merino Recalde and Tim Sainburg. Here is a list of related projects:
 
