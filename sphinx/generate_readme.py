@@ -63,11 +63,22 @@ def generate_readme():
         "",
     )
     index_content = index_content.replace("<br><br>", "")
+    
+    # Remove existing badge lines from index.md (they'll be added to the centered block)
+    badge_lines = [
+        "![PyPI - Version](https://img.shields.io/pypi/v/chatter-pkg?color=440154)",
+        "![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmasonyoungblood%2Fchatter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&color=414487)",
+        "![Repo Size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)",
+        "![License](https://img.shields.io/badge/license-MIT-22A884)",
+        "![Tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=FDE725)",
+    ]
+    for badge in badge_lines:
+        index_content = index_content.replace(badge, "")
 
     # Fix relative image paths - use GitHub raw URLs for README
     index_content = index_content.replace(
         "(_static/cassins_vireo_embedding.gif)",
-        "(https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/cassins_vireo_embedding.gif)",
+        "(https://raw.githubusercontent.com/masonyoungblood/chatter/main/sphinx/_static/cassins_vireo_embedding.gif)",
     )
 
     # Build substitutions locally (avoid heavy imports)
@@ -118,14 +129,19 @@ def generate_readme():
     }
 
     # Build centered header block with logo, name, badges, and doc link
-    test_badge = "![Tests](https://github.com/masonyoungblood/chatter/actions/workflows/tests.yml/badge.svg)"
+    pypi_badge = "![PyPI - Version](https://img.shields.io/pypi/v/chatter-pkg?color=440154)"
+    python_version_badge = "![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmasonyoungblood%2Fchatter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&color=414487)"
+    repo_size_badge = "![Repo Size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)"
+    license_badge = "![License](https://img.shields.io/badge/license-MIT-22A884)"
+    test_badge = "![Tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=FDE725)"
+    all_badges = f"{pypi_badge} {python_version_badge} {repo_size_badge} {license_badge} {test_badge}"
     
     center_block = (
         '<div align="center">\n'
-        '<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/logo.png" alt="chatter logo" width="400">\n\n'
+        '<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/main/sphinx/_static/logo.png" alt="chatter logo" width="400">\n\n'
         "[Mason Youngblood](https://masonyoungblood.com/)\n\n"
-        f"{test_badge}\n\n"
-        "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**\n"
+        f"{all_badges}\n\n"
+        "**[Full Documentation](https://masonyoungblood.github.io/chatter/sphinx/_build/html/index.html)**\n"
         "</div>\n"
     )
 
