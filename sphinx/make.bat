@@ -8,7 +8,8 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set SOURCEDIR=.
-set BUILDDIR=../docs/_build
+set BUILDDIR=_build
+set DOCSDIR=..\docs
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
@@ -24,12 +25,38 @@ if errorlevel 9009 (
 )
 
 if "%1" == "" goto help
+if "%1" == "clean" goto clean
+if "%1" == "html" goto html
+if "%1" == "deploy" goto deploy
 
 %SPHINXBUILD% -M %1 %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
 goto end
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+goto end
+
+:clean
+rmdir /s /q %BUILDDIR% 2>NUL
+echo.Build directory cleaned.
+goto end
+
+:html
+%SPHINXBUILD% -M html %SOURCEDIR% %BUILDDIR% %SPHINXOPTS% %O%
+python generate_readme.py
+echo.HTML documentation built in %BUILDDIR%\html\
+goto end
+
+:deploy
+call :html
+echo.Deploying to %DOCSDIR% for GitHub Pages...
+rmdir /s /q %DOCSDIR% 2>NUL
+mkdir %DOCSDIR% 2>NUL
+xcopy /s /e /y %BUILDDIR%\html\* %DOCSDIR%\
+echo. > %DOCSDIR%\.nojekyll
+echo.Documentation deployed to %DOCSDIR%\
+echo.Commit and push %DOCSDIR% to publish to GitHub Pages.
+goto end
 
 :end
 popd

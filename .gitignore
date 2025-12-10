@@ -9,6 +9,12 @@ wheels/
 # Virtual environments
 .venv
 
+# Sphinx build artifacts (not the deployed docs/ folder)
+sphinx/_build/
+
 # Others
 build_notes.txt
 other/
+sphinx/
+main.py
+.DS_Store
