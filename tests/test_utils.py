@@ -1,6 +1,7 @@
 import numpy as np
 from chatter.utils import normalize_spec
 
+
 def test_normalize_spec_scales_between_zero_and_one():
     # Basic range check on normalization helper
     spec = np.array([[-80.0, -10.0], [-30.0, -60.0]])
@@ -8,6 +9,7 @@ def test_normalize_spec_scales_between_zero_and_one():
     assert np.isfinite(norm).all()
     assert norm.min() >= 0.0
     assert norm.max() <= 1.0
+
 
 def test_pad_center_zero_and_downsample_preserve_shape():
     from chatter.utils import pad_center_zero, downsample_spectrogram

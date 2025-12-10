@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=a1637f0b"></script>
+    <script src="../_static/documentation_options.js?v=0deb7d70"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -365,9 +365,13 @@ document.write(`
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>chatter<span class="w"> </span><span class="nv">python</span><span class="o">==</span><span class="m">3</span>.13.3
 </pre></div>
 </div>
-<p>Then, you can activate the environment and install from GitHub using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<p>Then, you can activate the environment and install from GitHub using <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">uv</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>chatter
-pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/masonyoungblood/chatter.git
+pip<span class="w"> </span>install<span class="w"> </span>chatter-pkg
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>chatter
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>chatter-pkg
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">chatter</span></code> uses <code class="docutils literal notranslate"><span class="pre">torch</span></code> as its machine learning backend, and was developed to use GPU acceleration on Apple Silicon. If you run into issues with compatibility, please look into the <code class="docutils literal notranslate"><span class="pre">torch</span></code> <a class="reference external" href="https://docs.pytorch.org/docs/main/index.html">documentation</a> before opening an issue on GitHub.</p>

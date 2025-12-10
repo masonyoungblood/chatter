@@ -1,6 +1,7 @@
 import pandas as pd
 from chatter.features import FeatureProcessor
 
+
 def test_feature_processor_birch_smoke(tiny_config):
     # Minimal df with required columns for clustering
     df = pd.DataFrame(
@@ -13,4 +14,3 @@ def test_feature_processor_birch_smoke(tiny_config):
     fp = FeatureProcessor(df, tiny_config)
     fp.run_birch_clustering([2])
     assert "birch_2" in fp.df.columns
-

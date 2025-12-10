@@ -1,5 +1,5 @@
 <div align="center">
-<img src="docs/_static/logo.png" alt="chatter logo" width="400">
+<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/logo.png" alt="chatter logo" width="400">
 
 [Mason Youngblood](https://masonyoungblood.com/)
 
@@ -10,6 +10,12 @@
 # `chatter`: a Python library for applying information theory and AI/ML models to animal communication
 
 
+
+![PyPI - Version](https://img.shields.io/pypi/v/chatter-pkg?color=440154)
+![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmasonyoungblood%2Fchatter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&color=414487)
+![Repo Size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)
+![License](https://img.shields.io/badge/license-MIT-22A884)
+![Tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=FDE725)
 
 
 
@@ -22,7 +28,7 @@ Historically, analyses of sequential structure in animal communication have invo
 
 Additionally, `chatter` makes it easy to explore the latent space of a species' vocalizations, either statically or with an interactive plot like the one below (of syllables in Cassin's vireo song).
 
-![embeddings](docs/_static/cassins_vireo_embedding.gif)
+![embeddings](https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/cassins_vireo_embedding.gif)
 
 This project is heavily inspired by the work of folks like Nilo Merino Recalde and Tim Sainburg. Here is a list of related projects:
 
@@ -33,13 +39,13 @@ This project is heavily inspired by the work of folks like Nilo Merino Recalde a
 
 Please cite `chatter` as:
 
-- Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.0). *GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)
+- Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.2). *GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)
 
 ```bibtex
 @software{youngblood_chatter_2025,
    author = {Youngblood, Mason},
    title = {Chatter: a Python library for applying information theory and AI/ML models to animal communication},
-   version = {v0.1.0},
+   version = {v0.1.2},
    date = {2025},
    publisher = {GitHub},
    url = {https://github.com/masonyoungblood/chatter}
@@ -54,11 +60,16 @@ Please cite `chatter` as:
 conda create -n chatter python==3.13.3
 ```
 
-Then, you can activate the environment and install from GitHub using `pip`:
+Then, you can activate the environment and install from GitHub using `pip` or `uv`:
 
 ```bash
 conda activate chatter
-pip install git+https://github.com/masonyoungblood/chatter.git
+pip install chatter-pkg
+```
+
+```bash
+conda activate chatter
+uv pip install chatter-pkg
 ```
 
 Note that `chatter` uses `torch` as its machine learning backend, and was developed to use GPU acceleration on Apple Silicon. If you run into issues with compatibility, please look into the `torch` [documentation](https://docs.pytorch.org/docs/main/index.html) before opening an issue on GitHub.

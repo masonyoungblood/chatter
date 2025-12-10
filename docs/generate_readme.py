@@ -49,16 +49,26 @@ def generate_readme():
     index_content = index_content.replace(old_title, new_title)
 
     # Remove author/badges/doc link placeholders from body; we'll inject a centered block
-    index_content = index_content.replace("[Mason Youngblood](https://masonyoungblood.com/)", "")
-    index_content = index_content.replace("{{ python_badge }} {{ version_badge }} {{ doi_badge }}", "")
+    index_content = index_content.replace(
+        "[Mason Youngblood](https://masonyoungblood.com/)", ""
+    )
+    index_content = index_content.replace(
+        "{{ python_badge }} {{ version_badge }} {{ doi_badge }}", ""
+    )
     index_content = index_content.replace("{{ python_badge }}", "")
     index_content = index_content.replace("{{ version_badge }}", "")
     index_content = index_content.replace("{{ doi_badge }}", "")
-    index_content = index_content.replace("**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**", "")
+    index_content = index_content.replace(
+        "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**",
+        "",
+    )
     index_content = index_content.replace("<br><br>", "")
 
-    # Fix relative image paths
-    index_content = index_content.replace("(_static/", "(docs/_static/")
+    # Fix relative image paths - use GitHub raw URLs for README
+    index_content = index_content.replace(
+        "(_static/cassins_vireo_embedding.gif)",
+        "(https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/cassins_vireo_embedding.gif)",
+    )
 
     # Build substitutions locally (avoid heavy imports)
     version = _load_version(pyproject_path)
@@ -110,8 +120,8 @@ def generate_readme():
     # Build centered header block with logo, name, and doc link
     center_block = (
         '<div align="center">\n'
-        '<img src="docs/_static/logo.png" alt="chatter logo" width="400">\n\n'
-        '[Mason Youngblood](https://masonyoungblood.com/)\n\n'
+        '<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/logo.png" alt="chatter logo" width="400">\n\n'
+        "[Mason Youngblood](https://masonyoungblood.com/)\n\n"
         "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**\n"
         "</div>\n"
     )

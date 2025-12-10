@@ -4,6 +4,7 @@ from scipy.io import wavfile
 
 from chatter.config import make_config
 
+
 @pytest.fixture
 def tiny_config():
     """
@@ -25,6 +26,7 @@ def tiny_config():
             "ae_type": "convolutional",
         }
     )
+
 
 @pytest.fixture
 def random_audio_file(tmp_path, tiny_config):

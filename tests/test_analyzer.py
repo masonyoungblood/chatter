@@ -4,6 +4,7 @@ import pytest
 
 from chatter import Analyzer
 
+
 def test_preprocess_directory_smoke(tiny_config, random_audio_file, tmp_path):
     # Skip if ffprobe/ffmpeg are unavailable (pydub needs them for probing).
     if not shutil.which("ffprobe") and not shutil.which("ffmpeg"):
@@ -28,4 +29,3 @@ def test_preprocess_directory_smoke(tiny_config, random_audio_file, tmp_path):
     expected = out_dir / random_audio_file.name
     assert expected.exists()
     assert expected.stat().st_size > 0
-
