@@ -48,16 +48,14 @@ def generate_readme():
     new_title = "# `chatter`: a Python library for applying information theory and AI/ML models to animal communication"
     index_content = index_content.replace(old_title, new_title)
 
-    # Insert doc link after <br><br> with a single trailing newline
-    doc_link = "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**"
-    br_marker = "<br><br>"
-
-    if br_marker in index_content:
-        index_content = index_content.replace(br_marker, f"{br_marker}\n{doc_link}")
-    else:
-        # Fallback if marker not found
-        print("Warning: <br><br> marker not found. Appending doc link to top.")
-        index_content = doc_link + "\n" + index_content
+    # Remove author/badges/doc link placeholders from body; we'll inject a centered block
+    index_content = index_content.replace("[Mason Youngblood](https://masonyoungblood.com/)", "")
+    index_content = index_content.replace("{{ python_badge }} {{ version_badge }} {{ doi_badge }}", "")
+    index_content = index_content.replace("{{ python_badge }}", "")
+    index_content = index_content.replace("{{ version_badge }}", "")
+    index_content = index_content.replace("{{ doi_badge }}", "")
+    index_content = index_content.replace("**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**", "")
+    index_content = index_content.replace("<br><br>", "")
 
     # Fix relative image paths
     index_content = index_content.replace("(_static/", "(docs/_static/")
@@ -80,18 +78,51 @@ def generate_readme():
         py_badge_val = f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
 
     py_ver = py_badge_val
+    current_year = str(__import__("datetime").datetime.now().year)
+    # Compose citations without importing the package
+    apa_citation = (
+        f"- Youngblood, M. ({current_year}). "
+        f"Chatter: a Python library for applying information theory and AI/ML models to animal communication (v{version}). "
+        f"*GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)"
+    )
+    bibtex_citation = (
+        "```bibtex\n"
+        f"@software{{youngblood_chatter_{current_year},\n"
+        "   author = {Youngblood, Mason},\n"
+        "   title = {Chatter: a Python library for applying information theory and AI/ML models to animal communication},\n"
+        f"   version = {{v{version}}},\n"
+        f"   date = {{{current_year}}},\n"
+        "   publisher = {GitHub},\n"
+        "   url = {https://github.com/masonyoungblood/chatter}\n"
+        "}\n"
+        "```"
+    )
     substitutions = {
         "python_badge": f"![python](https://img.shields.io/badge/_python-{py_ver}-440154)",
         "version_badge": f"![version](https://img.shields.io/badge/_version-{version}-21918c)",
         "doi_badge": "![doi](https://img.shields.io/badge/_doi-TBD-fde725)",
         "python_version": py_ver,
         "chatter_version": version,
+        "apa_citation": apa_citation,
+        "bibtex_citation": bibtex_citation,
     }
 
-    # Make badges inline if they appear stacked
-    stacked = "{{ python_badge }}\n{{ version_badge }}\n{{ doi_badge }}"
-    inline = "{{ python_badge }} {{ version_badge }} {{ doi_badge }}"
-    index_content = index_content.replace(stacked, inline)
+    # Build centered header block with logo, name, badges, doc link
+    center_block = (
+        '<div align="center">\n'
+        '<img src="docs/_static/logo.png" alt="chatter logo" width="200">\n\n'
+        '[Mason Youngblood](https://masonyoungblood.com/)\n\n'
+        f'{substitutions["python_badge"]} {substitutions["version_badge"]} {substitutions["doi_badge"]}\n\n'
+        "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**\n"
+        "</div>\n"
+    )
+
+    # Inject centered block after the first line (title)
+    if "\n" in index_content:
+        first_line, rest = index_content.split("\n", 1)
+        index_content = first_line + "\n\n" + center_block + "\n" + rest
+    else:
+        index_content = index_content + "\n\n" + center_block
 
     # Apply substitutions
     for key, value in substitutions.items():

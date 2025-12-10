@@ -1,11 +1,23 @@
-# `chatter`: a Python library for applying information theory and AI/ML models to animal communication
+<div align="center">
+<img src="docs/_static/logo.png" alt="chatter logo" width="200">
 
 [Mason Youngblood](https://masonyoungblood.com/)
 
 ![python](https://img.shields.io/badge/_python-3.13+-440154) ![version](https://img.shields.io/badge/_version-0.1.0-21918c) ![doi](https://img.shields.io/badge/_doi-TBD-fde725)
 
-<br><br>
 **[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**
+</div>
+
+
+# `chatter`: a Python library for applying information theory and AI/ML models to animal communication
+
+
+
+
+
+
+
+
 
 Historically, analyses of sequential structure in animal communication have involved the identification of unit types (e.g. "syllables" in bird song and "notes" in whale song). This collapses continuous variation into discrete categories that align with human perception, a process that loses a great deal of the complexity and nuance present in the actual signals. Recent innovations in machine learning, such as variational autoencoders and vision transformers, allow us to bypass discretization and analyze animal communication signals directly in continuous space. `chatter` makes it easy for researchers to apply these methods to their data, to quantify features like:
 
@@ -27,9 +39,18 @@ This project is heavily inspired by the work of folks like Nilo Merino Recalde a
 
 Please cite `chatter` as:
 
-{{ apa_citation }}
+- Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.0). *GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)
 
-{{ bibtex_citation }}
+```bibtex
+@software{youngblood_chatter_2025,
+   author = {Youngblood, Mason},
+   title = {Chatter: a Python library for applying information theory and AI/ML models to animal communication},
+   version = {v0.1.0},
+   date = {2025},
+   publisher = {GitHub},
+   url = {https://github.com/masonyoungblood/chatter}
+}
+```
 
 # Installing `chatter`
 
