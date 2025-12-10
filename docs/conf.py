@@ -72,17 +72,7 @@ autodoc_default_options = {
     "member-order": "bysource",
 }
 
-# MyST substitutions so we can keep badges and text in sync with the codebase.
-# Note: MyST only substitutes whole values, so we build complete HTML tags here.
-python_version = (
-    f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
-)
-
-# Pre-construct the full HTML image tags
-python_badge = f'<img src="https://img.shields.io/badge/_python-{python_version}-440154" alt="python" />'
-version_badge = f'<img src="https://img.shields.io/badge/_version-{release}-21918c" alt="version" />'
-doi_badge = '<img src="https://img.shields.io/badge/_doi-TBD-fde725" alt="doi" />'
-
+# MyST substitutions for citations
 # Dynamic APA citation
 apa_citation = (
     f"- Youngblood, M. ({current_year}). "
@@ -104,10 +94,6 @@ bibtex_citation = f"""```bibtex
 
 myst_substitutions = {
     "chatter_version": release,
-    "python_version": python_version,
-    "python_badge": python_badge,
-    "version_badge": version_badge,
-    "doi_badge": doi_badge,
     "apa_citation": apa_citation,
     "bibtex_citation": bibtex_citation,
 }

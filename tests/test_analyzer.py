@@ -9,6 +9,12 @@ def test_preprocess_directory_smoke(tiny_config, random_audio_file, tmp_path):
     if not shutil.which("ffprobe") and not shutil.which("ffmpeg"):
         pytest.skip("ffmpeg/ffprobe not available in this environment")
 
+    # Skip if optional audiocomplib is not installed (preprocessing uses it if present).
+    try:
+        import audiocomplib  # noqa: F401
+    except ImportError:
+        pytest.skip("audiocomplib not available in this environment")
+
     # Smoke test: ensure preprocessing writes an output file
     analyzer = Analyzer(tiny_config, n_jobs=1)
     out_dir = tmp_path / "processed"

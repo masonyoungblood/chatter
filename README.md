@@ -1,19 +1,13 @@
 <div align="center">
-<img src="docs/_static/logo.png" alt="chatter logo" width="200">
+<img src="docs/_static/logo.png" alt="chatter logo" width="400">
 
 [Mason Youngblood](https://masonyoungblood.com/)
-
-![python](https://img.shields.io/badge/_python-3.13+-440154) ![version](https://img.shields.io/badge/_version-0.1.0-21918c) ![doi](https://img.shields.io/badge/_doi-TBD-fde725)
 
 **[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**
 </div>
 
 
 # `chatter`: a Python library for applying information theory and AI/ML models to animal communication
-
-
-
-
 
 
 

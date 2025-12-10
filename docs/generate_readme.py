@@ -107,12 +107,11 @@ def generate_readme():
         "bibtex_citation": bibtex_citation,
     }
 
-    # Build centered header block with logo, name, badges, doc link
+    # Build centered header block with logo, name, and doc link
     center_block = (
         '<div align="center">\n'
-        '<img src="docs/_static/logo.png" alt="chatter logo" width="200">\n\n'
+        '<img src="docs/_static/logo.png" alt="chatter logo" width="400">\n\n'
         '[Mason Youngblood](https://masonyoungblood.com/)\n\n'
-        f'{substitutions["python_badge"]} {substitutions["version_badge"]} {substitutions["doi_badge"]}\n\n'
         "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**\n"
         "</div>\n"
     )

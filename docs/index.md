@@ -4,10 +4,6 @@
 
 [Mason Youngblood](https://masonyoungblood.com/)
 
-{{ python_badge }}
-{{ version_badge }}
-{{ doi_badge }}
-
 <br><br>
 
 Historically, analyses of sequential structure in animal communication have involved the identification of unit types (e.g. "syllables" in bird song and "notes" in whale song). This collapses continuous variation into discrete categories that align with human perception, a process that loses a great deal of the complexity and nuance present in the actual signals. Recent innovations in machine learning, such as variational autoencoders and vision transformers, allow us to bypass discretization and analyze animal communication signals directly in continuous space. `chatter` makes it easy for researchers to apply these methods to their data, to quantify features like:
