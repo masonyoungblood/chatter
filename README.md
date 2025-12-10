@@ -3,6 +3,8 @@
 
 [Mason Youngblood](https://masonyoungblood.com/)
 
+![Tests](https://github.com/masonyoungblood/chatter/actions/workflows/tests.yml/badge.svg)
+
 **[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**
 </div>
 

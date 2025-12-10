@@ -117,11 +117,14 @@ def generate_readme():
         "bibtex_citation": bibtex_citation,
     }
 
-    # Build centered header block with logo, name, and doc link
+    # Build centered header block with logo, name, badges, and doc link
+    test_badge = "![Tests](https://github.com/masonyoungblood/chatter/actions/workflows/tests.yml/badge.svg)"
+    
     center_block = (
         '<div align="center">\n'
         '<img src="https://raw.githubusercontent.com/masonyoungblood/chatter/main/docs/_static/logo.png" alt="chatter logo" width="400">\n\n'
         "[Mason Youngblood](https://masonyoungblood.com/)\n\n"
+        f"{test_badge}\n\n"
         "**[Full Documentation](https://masonyoungblood.github.io/chatter/docs/_build/html/index.html)**\n"
         "</div>\n"
     )
