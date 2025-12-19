@@ -4,20 +4,25 @@
 
 [Mason Youngblood](https://masonyoungblood.com/)
 
-![PyPI - Version](https://img.shields.io/pypi/v/chatter-pkg?color=440154)
-![Python Version](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmasonyoungblood%2Fchatter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&color=414487)
-![Repo Size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)
-![License](https://img.shields.io/badge/license-MIT-22A884)
-![Tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=FDE725)
+[![pypi](https://img.shields.io/pypi/v/chatter-pkg?color=440154)](https://pypi.org/project/chatter-pkg/)
+[![python](https://img.shields.io/python/required-version-toml?tomlFilePath=https%3A%2F%2Fraw.githubusercontent.com%2Fmasonyoungblood%2Fchatter%2Frefs%2Fheads%2Fmain%2Fpyproject.toml&color=414487)](https://www.python.org/)
+[![size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)](https://github.com/masonyoungblood/chatter)
+[![license](https://img.shields.io/badge/license-MIT-22A884)](https://github.com/masonyoungblood/chatter/blob/main/LICENSE)
+[![tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=7ad151)](https://github.com/masonyoungblood/chatter/actions)
+[![doi](https://img.shields.io/badge/doi-10.TBD/arxiv.TBD-fde725)](https://arxiv.org/)
 
 <br><br>
 
-Historically, analyses of sequential structure in animal communication have involved the identification of unit types (e.g. "syllables" in bird song and "notes" in whale song). This collapses continuous variation into discrete categories that align with human perception, a process that loses a great deal of the complexity and nuance present in the actual signals. Recent innovations in machine learning, such as variational autoencoders and vision transformers, allow us to bypass discretization and analyze animal communication signals directly in continuous space. `chatter` makes it easy for researchers to apply these methods to their data, to quantify features like:
+The study of animal communication often involves categorizing units into types (e.g. syllables in songbirds, or notes in humpback whales). While this approach is useful in many cases, it necessarily flattens the complexity and nuance present in real communication systems. `chatter` is a new Python library for analyzing animal communication in continuous latent space using information theory and modern machine learning techniques. It is taxonomically agnostic, and has been tested with the vocalizations of birds, bats, whales, and primates. By leveraging a variety of different architectures, including variational autoencoders and vision transformers, `chatter` represents vocal sequences as trajectories in high-dimensional latent space, bypassing the need for manual or automatic categorization of units. The library provides an end-to-end workflow—from preprocessing and segmentation to model training and feature extraction—that enables researchers to quantify features like:
 
-- Complexity—path length of sequences in latent space per unit time.
-- Predictability—predictability of a transition in latent space.
-- Similarity—cosine similarity between units or sequences in latent space.
-- Novelty—inverse of predicted density of units or sequences in latent space.
+- Complexity: path length of sequences in latent space per unit time.
+- Predictability: predictability of a transition in latent space.
+- Similarity: cosine similarity between units or sequences in latent space.
+- Novelty: inverse of predicted density of units or sequences in latent space.
+
+Below is a basic diagram of the `chatter` workflow, showing the progression from spectrograms to latent features to visualizations in 2D space.
+
+![workflow](_static/diagram.png)
 
 Additionally, `chatter` makes it easy to explore the latent space of a species' vocalizations, either statically or with an interactive plot like the one below (of syllables in Cassin's vireo song).
 

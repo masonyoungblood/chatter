@@ -1,0 +1,6 @@
+DATE=12 December 2025
+GITHUB_URL=https://github.com/masonyoungblood/chatter
+DOCUMENTATION_URL=https://masonyoungblood.github.io/chatter
+PYPI_URL=https://pypi.org/project/chatter-pkg/
+CITATION=Youngblood, M. (2025). \textit{chatter}: a Python library for applying information theory and AI/ML models to animal communication.
+LOGO_WIDTH=5cm

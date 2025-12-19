@@ -1310,7 +1310,7 @@ class FeatureProcessor:
         point_size=2,
         margin=0.02,
         zoom_padding=0.05,
-        num_neighbors=3,
+        num_neighbors=5,
     ):
         """
         Create a publication-quality static plot of the embedding space.
