@@ -45,16 +45,16 @@ This project is heavily inspired by the work of folks like Nilo Merino Recalde a
 
 Please cite `chatter` as:
 
-- Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.5). *GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)
+- Youngblood, M. (2025). chatter: a Python library for applying information theory and AI/ML models to animal communication. *arXiv*. [https://doi.org/10.48550/arXiv.2512.17935](https://doi.org/10.48550/arXiv.2512.17935)
 
 ```bibtex
-@software{youngblood_chatter_2025,
+@article{youngblood_chatter_2025,
    author = {Youngblood, Mason},
-   title = {Chatter: a Python library for applying information theory and AI/ML models to animal communication},
-   version = {v0.1.5},
+   title = {chatter: a Python library for applying information theory and AI/ML models to animal communication},
    date = {2025},
-   publisher = {GitHub},
-   url = {https://github.com/masonyoungblood/chatter}
+   journal = {arXiv},
+   doi = {10.48550/arXiv.2512.17935},
+   url = {https://doi.org/10.48550/arXiv.2512.17935}
 }
 ```
 
