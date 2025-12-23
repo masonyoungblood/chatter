@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=23027dbc"></script>
+    <script src="_static/documentation_options.js?v=98feffa1"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
@@ -369,7 +369,7 @@ document.write(`
 <a class="reference external" href="https://github.com/masonyoungblood/chatter"><img alt="size" src="https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E" /></a>
 <a class="reference external" href="https://github.com/masonyoungblood/chatter/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-22A884" /></a>
 <a class="reference external" href="https://github.com/masonyoungblood/chatter/actions"><img alt="tests" src="https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&amp;color=7ad151" /></a>
-<a class="reference external" href="https://arxiv.org/"><img alt="doi" src="https://img.shields.io/badge/doi-10.TBD/arxiv.TBD-fde725" /></a></p>
+<a class="reference external" href="https://doi.org/10.48550/arXiv.2512.17935"><img alt="doi" src="https://img.shields.io/badge/doi-10.48550/arXiv.2512.17935-fde725" /></a></p>
 <p><br><br></p>
 <p>The study of animal communication often involves categorizing units into types (e.g. syllables in songbirds, or notes in humpback whales). While this approach is useful in many cases, it necessarily flattens the complexity and nuance present in real communication systems. <code class="docutils literal notranslate"><span class="pre">chatter</span></code> is a new Python library for analyzing animal communication in continuous latent space using information theory and modern machine learning techniques. It is taxonomically agnostic, and has been tested with the vocalizations of birds, bats, whales, and primates. By leveraging a variety of different architectures, including variational autoencoders and vision transformers, <code class="docutils literal notranslate"><span class="pre">chatter</span></code> represents vocal sequences as trajectories in high-dimensional latent space, bypassing the need for manual or automatic categorization of units. The library provides an end-to-end workflow—from preprocessing and segmentation to model training and feature extraction—that enables researchers to quantify features like:</p>
 <ul class="simple">
@@ -391,15 +391,15 @@ document.write(`
 </ul>
 <p>Please cite <code class="docutils literal notranslate"><span class="pre">chatter</span></code> as:</p>
 <ul class="simple">
-<li><p>Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.4). <em>GitHub</em>. <a class="github reference external" href="https://github.com/masonyoungblood/chatter">masonyoungblood/chatter</a></p></li>
+<li><p>Youngblood, M. (2025). chatter: a Python library for applying information theory and AI/ML models to animal communication. <em>arXiv</em>. <a class="reference external" href="https://doi.org/10.48550/arXiv.2512.17935">https://doi.org/10.48550/arXiv.2512.17935</a></p></li>
 </ul>
-<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@software</span><span class="p">{</span><span class="nl">youngblood_chatter_2025</span><span class="p">,</span>
+<div class="highlight-bibtex notranslate"><div class="highlight"><pre><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">youngblood_chatter_2025</span><span class="p">,</span>
 <span class="w">   </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Youngblood, Mason}</span><span class="p">,</span>
-<span class="w">   </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Chatter: a Python library for applying information theory and AI/ML models to animal communication}</span><span class="p">,</span>
-<span class="w">   </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{v0.1.4}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{chatter: a Python library for applying information theory and AI/ML models to animal communication}</span><span class="p">,</span>
 <span class="w">   </span><span class="na">date</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
-<span class="w">   </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{GitHub}</span><span class="p">,</span>
-<span class="w">   </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/masonyoungblood/chatter}</span>
+<span class="w">   </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.48550/arXiv.2512.17935}</span><span class="p">,</span>
+<span class="w">   </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://doi.org/10.48550/arXiv.2512.17935}</span>
 <span class="p">}</span>
 </pre></div>
 </div>

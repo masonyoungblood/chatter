@@ -8,7 +8,7 @@
 [![size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)](https://github.com/masonyoungblood/chatter)
 [![license](https://img.shields.io/badge/license-MIT-22A884)](https://github.com/masonyoungblood/chatter/blob/main/LICENSE)
 [![tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=7ad151)](https://github.com/masonyoungblood/chatter/actions)
-[![doi](https://img.shields.io/badge/doi-10.TBD/arxiv.TBD-fde725)](https://arxiv.org/)
+[![doi](https://img.shields.io/badge/doi-10.48550/arXiv.2512.17935-fde725)](https://doi.org/10.48550/arXiv.2512.17935)
 
 [Full Documentation](https://masonyoungblood.github.io/chatter)
 </div>
@@ -45,13 +45,13 @@ This project is heavily inspired by the work of folks like Nilo Merino Recalde a
 
 Please cite `chatter` as:
 
-- Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.4). *GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)
+- Youngblood, M. (2025). Chatter: a Python library for applying information theory and AI/ML models to animal communication (v0.1.5). *GitHub*. [https://github.com/masonyoungblood/chatter](https://github.com/masonyoungblood/chatter)
 
 ```bibtex
 @software{youngblood_chatter_2025,
    author = {Youngblood, Mason},
    title = {Chatter: a Python library for applying information theory and AI/ML models to animal communication},
-   version = {v0.1.4},
+   version = {v0.1.5},
    date = {2025},
    publisher = {GitHub},
    url = {https://github.com/masonyoungblood/chatter}
@@ -64,17 +64,17 @@ Please cite `chatter` as:
 
 ```bash
 conda create -n chatter python==3.13.3
+conda activate chatter
+conda install libsndfile
 ```
 
 Then, you can activate the environment and install from GitHub using `pip` or `uv`:
 
 ```bash
-conda activate chatter
 pip install chatter-pkg
 ```
 
 ```bash
-conda activate chatter
 uv pip install chatter-pkg
 ```
 

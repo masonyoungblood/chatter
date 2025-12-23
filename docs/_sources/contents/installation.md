@@ -4,17 +4,17 @@
 
 ```bash
 conda create -n chatter python==3.13.3
+conda activate chatter
+conda install libsndfile
 ```
 
 Then, you can activate the environment and install from GitHub using `pip` or `uv`:
 
 ```bash
-conda activate chatter
 pip install chatter-pkg
 ```
 
 ```bash
-conda activate chatter
 uv pip install chatter-pkg
 ```
 

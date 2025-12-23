@@ -9,7 +9,7 @@
 [![size](https://img.shields.io/github/repo-size/masonyoungblood/chatter?color=2A788E)](https://github.com/masonyoungblood/chatter)
 [![license](https://img.shields.io/badge/license-MIT-22A884)](https://github.com/masonyoungblood/chatter/blob/main/LICENSE)
 [![tests](https://img.shields.io/github/actions/workflow/status/masonyoungblood/chatter/tests.yml?branch=main&color=7ad151)](https://github.com/masonyoungblood/chatter/actions)
-[![doi](https://img.shields.io/badge/doi-10.TBD/arxiv.TBD-fde725)](https://arxiv.org/)
+[![doi](https://img.shields.io/badge/doi-10.48550/arXiv.2512.17935-fde725)](https://doi.org/10.48550/arXiv.2512.17935)
 
 <br><br>
 
